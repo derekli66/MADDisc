@@ -5,4 +5,4 @@ This project had been published on App Store in 2011 and lasted for few months. 
 
 Milestone
 =======
-Mad Disc had ever gotten the top 20 newly apps recommendation on iPhone App Store. http://cl.ly/image/3D2K1m1B1r2d2R432w07
+Mad Disc had ever gotten the top 20 newly apps recommendation on iPhone App Store in 2011. http://cl.ly/image/3D2K1m1B1r2d2R432w07

@@ -78,11 +78,11 @@
     [self.view addSubview:self.madDiscView];
     
     //廣告  banner 設定
-    [self createADBannerView];
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kFNCVersionKey] isEqualToString:@"Free"]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(revealADBannerView) name:kRevealADBannerView object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideADBannerView) name:kHideADBannerView object:nil];
-    }
+//    [self createADBannerView];
+//    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kFNCVersionKey] isEqualToString:@"Free"]) {
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(revealADBannerView) name:kRevealADBannerView object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideADBannerView) name:kHideADBannerView object:nil];
+//    }
 }
 
 - (void)viewDidUnload

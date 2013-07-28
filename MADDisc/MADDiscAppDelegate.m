@@ -51,7 +51,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {   
     self.window.backgroundColor = [UIColor darkGrayColor];
-    [self.window addSubview:self.animationViewController.view];
+    [self.window setRootViewController:self.animationViewController];
     [self.window makeKeyAndVisible];
     
     //在此設定 pieGraphController 的 ManagedObjectContext

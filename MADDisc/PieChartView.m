@@ -335,16 +335,13 @@ static BOOL isDefaultPieChartOn = NO;
 @implementation PieChartView (FNCPieGraphController)
 -(void)createDefaultPieChart{
     isDefaultPieChartOn = YES; //設定 isDefaultPieChartOn 為 YES，讓drawRect method 內部進行判斷要做何種繪圖
-    /*
+    
     [self addItemValue:0.1 withColor:PieChartItemColorMake(230/255.0, 0.0, 18/255.0, 0.75)]; //紅色
     [self addItemValue:0.1 withColor:PieChartItemColorMake(234/255.0, 84/255.0, 19/255.0, 0.75)]; //橘色
     [self addItemValue:0.1 withColor:PieChartItemColorMake(247/255.0, 238/255.0, 19/255.0, 0.75)]; //黃色
     [self addItemValue:0.1 withColor:PieChartItemColorMake(7/255.0, 145/255.0, 58/255.0, 0.75)]; //綠色
     [self addItemValue:0.1 withColor:PieChartItemColorMake(14/255.0, 110/255.0, 184/255.0, 0.75)]; //藍色
     [self addItemValue:0.1 withColor:PieChartItemColorMake(23/255.0, 28/255.0, 97/255.0, 0.75)]; //靛色
-    */
-
-
 }
 //需要根據 主程式內的 UserDefault 內容做改寫
 -(void)createPieChartWithPossibilityValueArray:(NSArray*)valueArray andUserDefaultArray:(NSArray*)userArray{

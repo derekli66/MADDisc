@@ -54,12 +54,12 @@
     [self.window setRootViewController:self.animationViewController];
     [self.window makeKeyAndVisible];
     
-    //在此設定 pieGraphController 的 ManagedObjectContext
+    //setup ManagedObjectContext in pieGraphController
     [self.animationViewController.pieGraphController setManagedObjectContext:self.managedObjectContext];
     
-    //隱藏 pieGraphController 中，AnimationView 以及 imageView
-    //預先縮小 AnimationView 以及 imageView。判斷 使用者選擇的項目是否大於零，若否 顯示 Default Pie Chart
-    //使用 CATransaction block 關閉 implicity animation
+    //hide AnimationView, imageView in pieGraphController
+    //minimize AnimationView and imageView。check if user's choice items count is larger than zero, otherwise show Default Pie Chart
+    //use CATransaction block shut down the implicity animation
     [CATransaction begin];
     [CATransaction setValue:[NSNumber numberWithFloat:0.0] forKey:kCATransactionAnimationDuration];
     [self.animationViewController.pieGraphController.animationView setHidden:YES];

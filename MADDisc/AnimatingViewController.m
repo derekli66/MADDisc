@@ -12,9 +12,6 @@
 #define SHOW_CURRENT_METHOD NSLog(@"%@", NSStringFromSelector(_cmd))
 @interface AnimatingViewController()
 -(void)delayPieChartUpdate:(id)sender;
--(void)createADBannerView;
--(void)hideADBannerView;
--(void)revealADBannerView;
 -(void)hideAndRevealShowBackListButton:(NSNotification*)notification;
 @end
 

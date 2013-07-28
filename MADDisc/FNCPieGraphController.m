@@ -46,7 +46,8 @@ static BOOL isDefaultPieChartOn = NO;
 @synthesize animationView = _animationView;
 @synthesize currentPieArray = _currentPieArray;
 #pragma mark - FNCPieGraphDelegate Methods
--(void)imageViewWithPieAngles:(NSArray*)arrayOfPieAngle{
+-(void)imageViewWithPieAngles:(NSArray*)arrayOfPieAngle
+{
     self.currentPieArray = [NSArray arrayWithArray:arrayOfPieAngle];
     /*
     static int i = 0;
@@ -57,8 +58,10 @@ static BOOL isDefaultPieChartOn = NO;
     i = 0;
      */
 }
+
 #pragma mark - FNCAnimationControllerDelegate Methods
--(void)animationDidStopInView:(UIView*)aView{
+-(void)animationDidStopInView:(UIView*)aView
+{
     if (self.finalResults != nil) {
             [self performSelector:@selector(showAlertWhenAnimationEnded) withObject:nil afterDelay:0.2];
     }else{
@@ -73,8 +76,10 @@ static BOOL isDefaultPieChartOn = NO;
      if ([[[NSUserDefaults standardUserDefaults] objectForKey:kFNCVersionKey] isEqualToString:@"Free"]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:kRevealADBannerView object:nil];
      };
-}  
--(void)animationDidStartInView:(UIView*)aView{
+}
+
+-(void)animationDidStartInView:(UIView*)aView
+{
     AnimationView *animView = (AnimationView*)aView;
     _finalDestinationAngles = animView.finalDestinationAngles;//final destination angles is Pi unit not degree unit. Only for clockwise or counter-clockwise check
     if (_finalDestinationAngles > 0) {
@@ -89,7 +94,9 @@ static BOOL isDefaultPieChartOn = NO;
         [[NSNotificationCenter defaultCenter] postNotificationName:kHideADBannerView object:nil];
     };
 }
--(BOOL)checkUserCurrentSelection{
+
+-(BOOL)checkUserCurrentSelection
+{
     BOOL isUserCountMoreThanZero;
     if ([self userSelectionCount]>0) {
         isUserCountMoreThanZero = YES;
@@ -98,30 +105,95 @@ static BOOL isDefaultPieChartOn = NO;
     }
     return isUserCountMoreThanZero;
 }
--(void)userDidTouchLongHand{
+
+-(void)userDidTouchLongHand
+{
     if (!([self userSelectionCount]>0)) {
         //[[NSNotificationCenter defaultCenter] postNotificationName:kShowNoUserSelectionAlert object:nil];
         [self showNoUserSelectionAlert];
     }
 }
+
 #pragma mark - UIAlertView Delegate Methods
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     if (buttonIndex == 0) {
         [self performSelector:@selector(postNotificationWhenUserDidTouchButNoSelectionYet)];
     }
 }
+
 #pragma mark - Getter and Setter
--(void)setFinalResults:(NSString *)theResults{
+-(void)setFinalResults:(NSString *)theResults
+{
     if (_finalResults != theResults) {
         [_finalResults release];
         _finalResults = [theResults copy];
     }
 }
+
 #pragma mark - Custom Methods
--(void)postNotificationWhenUserDidTouchButNoSelectionYet{
+/*產生 pie chart, 透過將 pie chart view 轉換為 UIImage 之後，在指定給 self.imageView 顯示 pie chart
+ 可以選擇使用背景處理或是不要背景處理
+ createNewPieChartOnQueue 的使用放在 iPod Touch 4上以及 viewDidLoad裡面使用
+ */
+-(void)createNewPieChartOnQueue:(BOOL)queued
+{
+    if (queued == YES) {
+        dispatch_queue_t processQueue = dispatch_queue_create("NewPieChart.Queue", NULL);
+        dispatch_async(processQueue, ^{
+            UIImage *aImage = [self createImageFromView:[self createPieChartView]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.imageView.image = aImage;
+            });
+        });
+        dispatch_release(processQueue);
+    }else{
+        UIImage *aImage = [self createImageFromView:[self createPieChartView]];
+        self.imageView.image = aImage;
+    }
+}
+
+-(void)createDefaultPieChartOnQueue:(BOOL)queued
+{
+    if (queued == YES) {
+        dispatch_queue_t processQueue = dispatch_queue_create("DefaultPieChart.Queue", NULL);
+        dispatch_async(processQueue, ^{
+            UIImage *aImage = [self createImageFromView:[self createDefaultPieChartView]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.imageView.image = aImage;
+            });
+        });
+        dispatch_release(processQueue);
+    }else{
+        UIImage *aImage = [self createImageFromView:[self createDefaultPieChartView]];
+        self.imageView.image = aImage;
+    }
+}
+
+-(void)updatePieGraph{
+    FNCPieGraphMask currentMask = kFNCPieGraphNoActionMask;
+    //判斷使用者有無選擇任何選項
+    if ([self userSelectionCount] > 0 && isDefaultPieChartOn == NO) {
+        currentMask = kFNCPieGraphNormalMask;
+    }else if([self userSelectionCount] == 0 && isDefaultPieChartOn == NO){
+        currentMask = kFNCPieGraphToDefaultMask;
+    }else if([self userSelectionCount] > 0 && isDefaultPieChartOn == YES){
+        currentMask = kFNCDefaultToPieGraphMask;
+    }else if([self userSelectionCount] == 0 && isDefaultPieChartOn == YES){
+        currentMask = kFNCPieGraphToDefaultMask;
+    }
+    
+    [self updatePieGraphInConditionMask:currentMask];
+}
+
+#pragma mark - Private Methods
+-(void)postNotificationWhenUserDidTouchButNoSelectionYet
+{
     [[NSNotificationCenter defaultCenter] postNotificationName:kNoUserSelection object:nil];
 }
--(void)showNoUserSelectionAlert{
+
+-(void)showNoUserSelectionAlert
+{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No Selection Yet", @"No Selection Yet 沒有選擇項目")  //**@@**Preparing for international NSString
                                                     message:NSLocalizedString(@"Go to your Desitnies and make your selections!", @"Tell user go to Desitnies page") //**@@**Preparing for international NSString
                                                    delegate:self 
@@ -130,7 +202,9 @@ static BOOL isDefaultPieChartOn = NO;
     [alert show];
     [alert release];
 }
--(void)showAlertWhenAnimationEnded{
+
+-(void)showAlertWhenAnimationEnded
+{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Your Decision Is",@"Your Decision Is 您的決定是") //**@@**Preparing for international NSString 
                                                     message:self.finalResults
                                                    delegate:nil
@@ -139,7 +213,9 @@ static BOOL isDefaultPieChartOn = NO;
     [alert show];
     [alert release];
 }
--(void)showAlertWhenResultsIsEven{
+
+-(void)showAlertWhenResultsIsEven
+{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Uh Oh~", @"Uh Oh~ 我的天！") //**@@**Preparing for international NSString 
                                                     message:NSLocalizedString(@"It is really a hard decision! Please try again!", @"這真的是艱難的抉擇！ 請再試一次！") //**@@**Preparing for international NSString
                                                    delegate:nil
@@ -148,7 +224,9 @@ static BOOL isDefaultPieChartOn = NO;
     [alert show];
     [alert release];
 }
--(NSString*)finalResultsCalculatorWithRotationClockwise:(BOOL)isClockwise{
+
+-(NSString*)finalResultsCalculatorWithRotationClockwise:(BOOL)isClockwise
+{
     NSArray *userArray = [self fetchingUserSelection];
     NSArray *degreeArray = self.currentPieArray;
     NSString *resultString = nil;
@@ -182,7 +260,8 @@ static BOOL isDefaultPieChartOn = NO;
     
     return resultString;
 }
--(NSArray*)generatePossibilityArray:(NSArray*)userArray{
+-(NSArray*)generatePossibilityArray:(NSArray*)userArray
+{
     NSMutableArray *valueArray = [NSMutableArray arrayWithCapacity:[self userSelectionCount]];
     CGFloat value = 0;
     CGFloat sum = 0;
@@ -199,7 +278,8 @@ static BOOL isDefaultPieChartOn = NO;
     
     return valueArray;
 }
--(CGFloat)generateDestinationAngles{
+-(CGFloat)generateDestinationAngles
+{
     CGFloat theAngles = (1+arc4random()%720)/2;
     //NSLog(@"theAngles %f", theAngles);
     if (theAngles == 0 || theAngles == 360) {
@@ -209,7 +289,8 @@ static BOOL isDefaultPieChartOn = NO;
     _destinationAngles = theAngles;
     return _destinationAngles;
 }
--(NSArray*)fetchingUserSelection{
+-(NSArray*)fetchingUserSelection
+{
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Decision" inManagedObjectContext:self.managedObjectContext];
     NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
     [request setEntity:entityDescription];
@@ -229,7 +310,8 @@ static BOOL isDefaultPieChartOn = NO;
     
     return array;
 }
--(NSInteger)userSelectionCount{
+-(NSInteger)userSelectionCount
+{
     NSArray *array = [self fetchingUserSelection];
     NSInteger count;
     if (array == nil) {
@@ -239,7 +321,8 @@ static BOOL isDefaultPieChartOn = NO;
     }
     return count;
 }
--(UIImage*)createImageFromView:(UIView* )theView{
+-(UIImage*)createImageFromView:(UIView* )theView
+{
     if (&UIGraphicsBeginImageContextWithOptions) 
         UIGraphicsBeginImageContextWithOptions(theView.bounds.size, NO, 0.0);
     else
@@ -251,7 +334,8 @@ static BOOL isDefaultPieChartOn = NO;
     
     return myImage;
 }
--(PieChartView*)createPieChartView{
+-(PieChartView*)createPieChartView
+{
     NSArray *array = [self fetchingUserSelection];
     NSArray *valueArray = [self generatePossibilityArray:array];
     
@@ -262,7 +346,8 @@ static BOOL isDefaultPieChartOn = NO;
 
     return  [pieView autorelease]; 
 }
--(PieChartView*)createDefaultPieChartView{
+-(PieChartView*)createDefaultPieChartView
+{
     CGRect frame = [[UIScreen mainScreen] applicationFrame];
     PieChartView *pieView = [[PieChartView alloc] initWithFrame:CGRectMake(0.0, 0.0, frame.size.width, frame.size.height)];
     [pieView createDefaultPieChart];
@@ -270,46 +355,17 @@ static BOOL isDefaultPieChartOn = NO;
     return [pieView autorelease];
 }
 
-/*產生 pie chart, 透過將 pie chart view 轉換為 UIImage 之後，在指定給 self.imageView 顯示 pie chart
-  可以選擇使用背景處理或是不要背景處理
-  createNewPieChartOnQueue 的使用放在 iPod Touch 4上以及 viewDidLoad裡面使用
-*/
--(void)createNewPieChartOnQueue:(BOOL)queued{
 
-    if (queued == YES) {
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            UIImage *aImage = [self createImageFromView:[self createPieChartView]];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.imageView.image = aImage;
-            });
-        });
-    }else{
-        UIImage *aImage = [self createImageFromView:[self createPieChartView]];
-        self.imageView.image = aImage;
-    }
-}
--(void)createDefaultPieChartOnQueue:(BOOL)queued{
 
-    if (queued == YES) {
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            UIImage *aImage = [self createImageFromView:[self createDefaultPieChartView]];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.imageView.image = aImage;
-            });
-        });
-    }else{
-        UIImage *aImage = [self createImageFromView:[self createDefaultPieChartView]];
-        self.imageView.image = aImage;
-    }
-}
 //***********************************************************
 //the method resetPieChart: is using GCD to create new image in background
 //and also retain created image for later use
 //tempImage wille be update after first animation completed.
 //While the orignal code is not compatible in iPod Touch 4. Therefore, detecting device version is necessary.
 //***********************************************************
--(void)resetPieChart:(id)sender{
-        SHOW_CURRENT_METHOD;
+-(void)resetPieChart:(id)sender
+{
+        
     CATransform3D preTransform = CATransform3DIdentity;//原始大小
     CATransform3D overTransform = CATransform3DScale(preTransform, 1.06, 1.06, 1.0);//over size
     __block UIImage *tempImage;//block variable
@@ -340,6 +396,7 @@ static BOOL isDefaultPieChartOn = NO;
                          }];
     
 }
+
 -(void)resetPieChartToDefaultPieChart:(id)sender{
     SHOW_CURRENT_METHOD;
     CATransform3D preTransform = CATransform3DIdentity;
@@ -400,6 +457,7 @@ static BOOL isDefaultPieChartOn = NO;
                          });
                      }];
 }
+
 -(void)updatePieGraphInConditionMask:(FNCPieGraphMask)theMask{
     switch (theMask) {
         case kFNCPieGraphNormalMask:
@@ -419,21 +477,9 @@ static BOOL isDefaultPieChartOn = NO;
             break;
     }
 }
--(void)updatePieGraph{
-    FNCPieGraphMask currentMask = kFNCPieGraphNoActionMask;
-    //判斷使用者有無選擇任何選項
-    if ([self userSelectionCount] > 0 && isDefaultPieChartOn == NO) {
-        currentMask = kFNCPieGraphNormalMask;
-    }else if([self userSelectionCount] == 0 && isDefaultPieChartOn == NO){
-        currentMask = kFNCPieGraphToDefaultMask;
-    }else if([self userSelectionCount] > 0 && isDefaultPieChartOn == YES){
-        currentMask = kFNCDefaultToPieGraphMask;
-    }else if([self userSelectionCount] == 0 && isDefaultPieChartOn == YES){
-        currentMask = kFNCPieGraphToDefaultMask;
-    }
-    
-    [self updatePieGraphInConditionMask:currentMask];
-}
+
+
+
 //查詢使用者目前的使用平台為何？
 -(NSString*)checkPlatformVersion{
     size_t size;
@@ -450,6 +496,7 @@ static BOOL isDefaultPieChartOn = NO;
     //NSLog(@"%@", [platform substringToIndex:4]);
     return [platform substringToIndex:4];//回傳前四位英文單字(偵測是否為iPod)
 }
+
 #pragma mark - Memory Management
 -(void)dealloc{
     self.animationView = nil;
@@ -458,6 +505,7 @@ static BOOL isDefaultPieChartOn = NO;
     self.finalResults = nil;
     [super dealloc];
 }
+
 #pragma mark - Initialization
 -(void)awakeFromNib{
     CGRect screenRect = [UIScreen mainScreen].applicationFrame;

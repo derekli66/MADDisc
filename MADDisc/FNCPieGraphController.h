@@ -17,18 +17,13 @@
 #import "AnimationView.h"
 #import "Decision.h"
 
-@interface FNCPieGraphController : NSObject <FNCPieGraphDelegate, FNCAnimationControllerDelegate> {
-    
-}
+@interface FNCPieGraphController : NSObject <FNCPieGraphDelegate, FNCAnimationControllerDelegate>
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;//imageView 是為了裝載 Pie Graph Image(UIImage object) 
 @property (nonatomic, retain) AnimationView *animationView;//animationView 置於 imageView 之上
-
 @property (nonatomic, retain) NSArray *currentPieArray;//To store angles for each pie
-
 
 -(void)createNewPieChartOnQueue:(BOOL)queued;
 -(void)createDefaultPieChartOnQueue:(BOOL)queued;
 -(void)updatePieGraph;
-
 @end

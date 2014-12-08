@@ -7,35 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B200FA9913D07CAC00EE81F8 /* FNCCALayerDrawingDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B200FA9813D07CAC00EE81F8 /* FNCCALayerDrawingDelegate.m */; };
-		B21A194913BDDAFB004F9886 /* PieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = B21A194613BDDAFB004F9886 /* PieChartView.m */; };
-		B21A194A13BDDAFB004F9886 /* FNCPieGraphController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21A194813BDDAFB004F9886 /* FNCPieGraphController.m */; };
+		716C68D51A35754E00CBAB1C /* AnimatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68CA1A35754E00CBAB1C /* AnimatingViewController.m */; };
+		716C68D61A35754E00CBAB1C /* AnimatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716C68CB1A35754E00CBAB1C /* AnimatingViewController.xib */; };
+		716C68D71A35754E00CBAB1C /* BackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68CD1A35754E00CBAB1C /* BackListViewController.m */; };
+		716C68D81A35754E00CBAB1C /* BackListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716C68CE1A35754E00CBAB1C /* BackListViewController.xib */; };
+		716C68D91A35754E00CBAB1C /* FNCCALayerDrawingDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68D01A35754E00CBAB1C /* FNCCALayerDrawingDelegate.m */; };
+		716C68DA1A35754E00CBAB1C /* FNCPieGraphController.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68D21A35754E00CBAB1C /* FNCPieGraphController.m */; };
+		716C68DB1A35754E00CBAB1C /* TextInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68D41A35754E00CBAB1C /* TextInputViewController.m */; };
+		716C68E01A35756100CBAB1C /* Decision.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68DD1A35756100CBAB1C /* Decision.m */; };
+		716C68E11A35756100CBAB1C /* MADDisc.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 716C68DE1A35756100CBAB1C /* MADDisc.xcdatamodeld */; };
+		716C68EE1A35757100CBAB1C /* AnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68E31A35757100CBAB1C /* AnimationView.m */; };
+		716C68EF1A35757100CBAB1C /* FNCCheckItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68E51A35757100CBAB1C /* FNCCheckItemCell.m */; };
+		716C68F01A35757100CBAB1C /* FNCCheckItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68E71A35757100CBAB1C /* FNCCheckItemView.m */; };
+		716C68F11A35757100CBAB1C /* FNCRoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68E91A35757100CBAB1C /* FNCRoundButton.m */; };
+		716C68F21A35757100CBAB1C /* MADBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68EB1A35757100CBAB1C /* MADBackgroundView.m */; };
+		716C68F31A35757100CBAB1C /* PieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68ED1A35757100CBAB1C /* PieChartView.m */; };
 		B22D13D013DBA50B00BEC1E0 /* AppLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B22D13CE13DBA50B00BEC1E0 /* AppLogo.png */; };
 		B22D13D113DBA50B00BEC1E0 /* FurnaceLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B22D13CF13DBA50B00BEC1E0 /* FurnaceLogo.png */; };
 		B22D13D513DBAA1700BEC1E0 /* EntryIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B22D13D413DBAA1700BEC1E0 /* EntryIcon.png */; };
-		B232D25A13DC57760082D731 /* FNCRoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B232D25913DC57760082D731 /* FNCRoundButton.m */; };
 		B232D25F13DC82EB0082D731 /* UIView+ImageOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = B232D25E13DC82EB0082D731 /* UIView+ImageOutput.m */; };
 		B232D26113DD03CF0082D731 /* ColorPreset.plist in Resources */ = {isa = PBXBuildFile; fileRef = B232D26013DD03CF0082D731 /* ColorPreset.plist */; };
-		B23797DC13B7B03600F1B0BF /* FNCCheckItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B23797D713B7B03600F1B0BF /* FNCCheckItemCell.m */; };
-		B25A16F513CC8B720051CF09 /* MADDisc+FNCSelfDefined.h in Resources */ = {isa = PBXBuildFile; fileRef = B25A16F413CC8B720051CF09 /* MADDisc+FNCSelfDefined.h */; };
-		B25A16FE13CCA6C00051CF09 /* Decision.m in Sources */ = {isa = PBXBuildFile; fileRef = B25A16FD13CCA6C00051CF09 /* Decision.m */; };
-		B25A171813CCC0C60051CF09 /* FNCCheckItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B25A171613CCC0C50051CF09 /* FNCCheckItemView.m */; };
 		B27774CC139E3FBC00ADD035 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27774CB139E3FBC00ADD035 /* UIKit.framework */; };
 		B27774CE139E3FBC00ADD035 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27774CD139E3FBC00ADD035 /* Foundation.framework */; };
 		B27774D0139E3FBC00ADD035 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27774CF139E3FBC00ADD035 /* CoreGraphics.framework */; };
 		B27774D2139E3FBC00ADD035 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27774D1139E3FBC00ADD035 /* CoreData.framework */; };
 		B27774DB139E3FBC00ADD035 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B27774DA139E3FBC00ADD035 /* main.m */; };
 		B27774DE139E3FBC00ADD035 /* MADDiscAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B27774DD139E3FBC00ADD035 /* MADDiscAppDelegate.m */; };
-		B27774E4139E3FBC00ADD035 /* MADDisc.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B27774E2139E3FBC00ADD035 /* MADDisc.xcdatamodeld */; };
 		B27774F9139E476E00ADD035 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27774F8139E476E00ADD035 /* QuartzCore.framework */; };
-		B27774FD139E47CB00ADD035 /* BackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B27774FB139E47CB00ADD035 /* BackListViewController.m */; };
-		B27774FE139E47CB00ADD035 /* BackListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B27774FC139E47CB00ADD035 /* BackListViewController.xib */; };
-		B2777502139E481000ADD035 /* AnimatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2777500139E481000ADD035 /* AnimatingViewController.m */; };
-		B2777503139E481000ADD035 /* AnimatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2777501139E481000ADD035 /* AnimatingViewController.xib */; };
-		B2777507139E484700ADD035 /* TextInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2777505139E484700ADD035 /* TextInputViewController.m */; };
 		B287ADFD13C2DFA400A20D66 /* MADBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B287ADFB13C2DFA400A20D66 /* MADBackground.png */; };
-		B287AE1213C2EBE300A20D66 /* MADBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = B287AE1113C2EBE300A20D66 /* MADBackgroundView.m */; };
-		B287AE1613C478EA00A20D66 /* AnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B287AE1513C478EA00A20D66 /* AnimationView.m */; };
 		B294176D13D672650036FCFB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B294176C13D672650036FCFB /* AudioToolbox.framework */; };
 		B294176F13D6726F0036FCFB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B294176E13D6726F0036FCFB /* MessageUI.framework */; };
 		B294177113D672820036FCFB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B294177013D672820036FCFB /* SystemConfiguration.framework */; };
@@ -61,27 +60,39 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B200FA9713D07CAC00EE81F8 /* FNCCALayerDrawingDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNCCALayerDrawingDelegate.h; sourceTree = "<group>"; };
-		B200FA9813D07CAC00EE81F8 /* FNCCALayerDrawingDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNCCALayerDrawingDelegate.m; sourceTree = "<group>"; };
-		B21A194513BDDAFB004F9886 /* PieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartView.h; sourceTree = "<group>"; };
-		B21A194613BDDAFB004F9886 /* PieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartView.m; sourceTree = "<group>"; };
-		B21A194713BDDAFB004F9886 /* FNCPieGraphController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNCPieGraphController.h; sourceTree = "<group>"; };
-		B21A194813BDDAFB004F9886 /* FNCPieGraphController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNCPieGraphController.m; sourceTree = "<group>"; };
+		716C68C91A35754E00CBAB1C /* AnimatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatingViewController.h; sourceTree = "<group>"; };
+		716C68CA1A35754E00CBAB1C /* AnimatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatingViewController.m; sourceTree = "<group>"; };
+		716C68CB1A35754E00CBAB1C /* AnimatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimatingViewController.xib; sourceTree = "<group>"; };
+		716C68CC1A35754E00CBAB1C /* BackListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackListViewController.h; sourceTree = "<group>"; };
+		716C68CD1A35754E00CBAB1C /* BackListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackListViewController.m; sourceTree = "<group>"; };
+		716C68CE1A35754E00CBAB1C /* BackListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackListViewController.xib; sourceTree = "<group>"; };
+		716C68CF1A35754E00CBAB1C /* FNCCALayerDrawingDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNCCALayerDrawingDelegate.h; sourceTree = "<group>"; };
+		716C68D01A35754E00CBAB1C /* FNCCALayerDrawingDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNCCALayerDrawingDelegate.m; sourceTree = "<group>"; };
+		716C68D11A35754E00CBAB1C /* FNCPieGraphController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNCPieGraphController.h; sourceTree = "<group>"; };
+		716C68D21A35754E00CBAB1C /* FNCPieGraphController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNCPieGraphController.m; sourceTree = "<group>"; };
+		716C68D31A35754E00CBAB1C /* TextInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextInputViewController.h; sourceTree = "<group>"; };
+		716C68D41A35754E00CBAB1C /* TextInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextInputViewController.m; sourceTree = "<group>"; };
+		716C68DC1A35756100CBAB1C /* Decision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decision.h; sourceTree = "<group>"; };
+		716C68DD1A35756100CBAB1C /* Decision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Decision.m; sourceTree = "<group>"; };
+		716C68DF1A35756100CBAB1C /* MADDisc.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MADDisc.xcdatamodel; sourceTree = "<group>"; };
+		716C68E21A35757100CBAB1C /* AnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationView.h; sourceTree = "<group>"; };
+		716C68E31A35757100CBAB1C /* AnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationView.m; sourceTree = "<group>"; };
+		716C68E41A35757100CBAB1C /* FNCCheckItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNCCheckItemCell.h; sourceTree = "<group>"; };
+		716C68E51A35757100CBAB1C /* FNCCheckItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNCCheckItemCell.m; sourceTree = "<group>"; };
+		716C68E61A35757100CBAB1C /* FNCCheckItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNCCheckItemView.h; sourceTree = "<group>"; };
+		716C68E71A35757100CBAB1C /* FNCCheckItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNCCheckItemView.m; sourceTree = "<group>"; };
+		716C68E81A35757100CBAB1C /* FNCRoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNCRoundButton.h; sourceTree = "<group>"; };
+		716C68E91A35757100CBAB1C /* FNCRoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNCRoundButton.m; sourceTree = "<group>"; };
+		716C68EA1A35757100CBAB1C /* MADBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MADBackgroundView.h; sourceTree = "<group>"; };
+		716C68EB1A35757100CBAB1C /* MADBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MADBackgroundView.m; sourceTree = "<group>"; };
+		716C68EC1A35757100CBAB1C /* PieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartView.h; sourceTree = "<group>"; };
+		716C68ED1A35757100CBAB1C /* PieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartView.m; sourceTree = "<group>"; };
 		B22D13CE13DBA50B00BEC1E0 /* AppLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppLogo.png; sourceTree = "<group>"; };
 		B22D13CF13DBA50B00BEC1E0 /* FurnaceLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FurnaceLogo.png; sourceTree = "<group>"; };
 		B22D13D413DBAA1700BEC1E0 /* EntryIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EntryIcon.png; sourceTree = "<group>"; };
-		B232D25813DC57760082D731 /* FNCRoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNCRoundButton.h; sourceTree = "<group>"; };
-		B232D25913DC57760082D731 /* FNCRoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNCRoundButton.m; sourceTree = "<group>"; };
 		B232D25D13DC82EB0082D731 /* UIView+ImageOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ImageOutput.h"; sourceTree = "<group>"; };
 		B232D25E13DC82EB0082D731 /* UIView+ImageOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ImageOutput.m"; sourceTree = "<group>"; };
 		B232D26013DD03CF0082D731 /* ColorPreset.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ColorPreset.plist; sourceTree = "<group>"; };
-		B23797D613B7B03600F1B0BF /* FNCCheckItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNCCheckItemCell.h; sourceTree = "<group>"; };
-		B23797D713B7B03600F1B0BF /* FNCCheckItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNCCheckItemCell.m; sourceTree = "<group>"; };
-		B25A16F413CC8B720051CF09 /* MADDisc+FNCSelfDefined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MADDisc+FNCSelfDefined.h"; sourceTree = "<group>"; };
-		B25A16FC13CCA6C00051CF09 /* Decision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decision.h; sourceTree = "<group>"; };
-		B25A16FD13CCA6C00051CF09 /* Decision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Decision.m; sourceTree = "<group>"; };
-		B25A171613CCC0C50051CF09 /* FNCCheckItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNCCheckItemView.m; sourceTree = "<group>"; };
-		B25A171713CCC0C60051CF09 /* FNCCheckItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNCCheckItemView.h; sourceTree = "<group>"; };
 		B27774C7139E3FBC00ADD035 /* MADDisc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MADDisc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B27774CB139E3FBC00ADD035 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B27774CD139E3FBC00ADD035 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -92,21 +103,8 @@
 		B27774DA139E3FBC00ADD035 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B27774DC139E3FBC00ADD035 /* MADDiscAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MADDiscAppDelegate.h; sourceTree = "<group>"; };
 		B27774DD139E3FBC00ADD035 /* MADDiscAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MADDiscAppDelegate.m; sourceTree = "<group>"; };
-		B27774E3139E3FBC00ADD035 /* MADDisc.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MADDisc.xcdatamodel; sourceTree = "<group>"; };
 		B27774F8139E476E00ADD035 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		B27774FA139E47CB00ADD035 /* BackListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackListViewController.h; sourceTree = "<group>"; };
-		B27774FB139E47CB00ADD035 /* BackListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackListViewController.m; sourceTree = "<group>"; };
-		B27774FC139E47CB00ADD035 /* BackListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackListViewController.xib; sourceTree = "<group>"; };
-		B27774FF139E481000ADD035 /* AnimatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatingViewController.h; sourceTree = "<group>"; };
-		B2777500139E481000ADD035 /* AnimatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatingViewController.m; sourceTree = "<group>"; };
-		B2777501139E481000ADD035 /* AnimatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimatingViewController.xib; sourceTree = "<group>"; };
-		B2777504139E484700ADD035 /* TextInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextInputViewController.h; sourceTree = "<group>"; };
-		B2777505139E484700ADD035 /* TextInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextInputViewController.m; sourceTree = "<group>"; };
 		B287ADFB13C2DFA400A20D66 /* MADBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MADBackground.png; sourceTree = "<group>"; };
-		B287AE1013C2EBE300A20D66 /* MADBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MADBackgroundView.h; sourceTree = "<group>"; };
-		B287AE1113C2EBE300A20D66 /* MADBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MADBackgroundView.m; sourceTree = "<group>"; };
-		B287AE1413C478E900A20D66 /* AnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationView.h; sourceTree = "<group>"; };
-		B287AE1513C478EA00A20D66 /* AnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationView.m; sourceTree = "<group>"; };
 		B294176C13D672650036FCFB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B294176E13D6726F0036FCFB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B294177013D672820036FCFB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -156,40 +154,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B21A194313BDDADC004F9886 /* PieChartControll Group */ = {
+		716C68C61A3573B000CBAB1C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B21A194513BDDAFB004F9886 /* PieChartView.h */,
-				B21A194613BDDAFB004F9886 /* PieChartView.m */,
-				B287AE1413C478E900A20D66 /* AnimationView.h */,
-				B287AE1513C478EA00A20D66 /* AnimationView.m */,
-				B21A194713BDDAFB004F9886 /* FNCPieGraphController.h */,
-				B21A194813BDDAFB004F9886 /* FNCPieGraphController.m */,
-				B200FA9713D07CAC00EE81F8 /* FNCCALayerDrawingDelegate.h */,
-				B200FA9813D07CAC00EE81F8 /* FNCCALayerDrawingDelegate.m */,
+				716C68C91A35754E00CBAB1C /* AnimatingViewController.h */,
+				716C68CA1A35754E00CBAB1C /* AnimatingViewController.m */,
+				716C68CB1A35754E00CBAB1C /* AnimatingViewController.xib */,
+				716C68CC1A35754E00CBAB1C /* BackListViewController.h */,
+				716C68CD1A35754E00CBAB1C /* BackListViewController.m */,
+				716C68CE1A35754E00CBAB1C /* BackListViewController.xib */,
+				716C68CF1A35754E00CBAB1C /* FNCCALayerDrawingDelegate.h */,
+				716C68D01A35754E00CBAB1C /* FNCCALayerDrawingDelegate.m */,
+				716C68D11A35754E00CBAB1C /* FNCPieGraphController.h */,
+				716C68D21A35754E00CBAB1C /* FNCPieGraphController.m */,
+				716C68D31A35754E00CBAB1C /* TextInputViewController.h */,
+				716C68D41A35754E00CBAB1C /* TextInputViewController.m */,
 			);
-			name = "PieChartControll Group";
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		B232D25C13DC82B20082D731 /* Category */ = {
+		716C68C71A3573B000CBAB1C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B25A16F413CC8B720051CF09 /* MADDisc+FNCSelfDefined.h */,
+				716C68DC1A35756100CBAB1C /* Decision.h */,
+				716C68DD1A35756100CBAB1C /* Decision.m */,
+				716C68DE1A35756100CBAB1C /* MADDisc.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		716C68C81A3573B000CBAB1C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				716C68E21A35757100CBAB1C /* AnimationView.h */,
+				716C68E31A35757100CBAB1C /* AnimationView.m */,
+				716C68E41A35757100CBAB1C /* FNCCheckItemCell.h */,
+				716C68E51A35757100CBAB1C /* FNCCheckItemCell.m */,
+				716C68E61A35757100CBAB1C /* FNCCheckItemView.h */,
+				716C68E71A35757100CBAB1C /* FNCCheckItemView.m */,
+				716C68E81A35757100CBAB1C /* FNCRoundButton.h */,
+				716C68E91A35757100CBAB1C /* FNCRoundButton.m */,
+				716C68EA1A35757100CBAB1C /* MADBackgroundView.h */,
+				716C68EB1A35757100CBAB1C /* MADBackgroundView.m */,
+				716C68EC1A35757100CBAB1C /* PieChartView.h */,
+				716C68ED1A35757100CBAB1C /* PieChartView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B232D25C13DC82B20082D731 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
 				B232D25D13DC82EB0082D731 /* UIView+ImageOutput.h */,
 				B232D25E13DC82EB0082D731 /* UIView+ImageOutput.m */,
 			);
-			name = Category;
-			sourceTree = "<group>";
-		};
-		B272F1AC13B63E9F00643FBB /* UITableViewCell Subclass */ = {
-			isa = PBXGroup;
-			children = (
-				B25A171713CCC0C60051CF09 /* FNCCheckItemView.h */,
-				B25A171613CCC0C50051CF09 /* FNCCheckItemView.m */,
-				B23797D613B7B03600F1B0BF /* FNCCheckItemCell.h */,
-				B23797D713B7B03600F1B0BF /* FNCCheckItemCell.m */,
-			);
-			name = "UITableViewCell Subclass";
+			path = Libraries;
 			sourceTree = "<group>";
 		};
 		B27774BC139E3FBC00ADD035 = {
@@ -228,11 +247,13 @@
 		B27774D3139E3FBC00ADD035 /* MADDisc */ = {
 			isa = PBXGroup;
 			children = (
-				B232D25C13DC82B20082D731 /* Category */,
-				B287AE1313C2F32400A20D66 /* Main Group */,
-				B21A194313BDDADC004F9886 /* PieChartControll Group */,
-				B287AE0F13C2EB8800A20D66 /* Data List Group */,
-				B272F1AC13B63E9F00643FBB /* UITableViewCell Subclass */,
+				B27774DC139E3FBC00ADD035 /* MADDiscAppDelegate.h */,
+				B27774DD139E3FBC00ADD035 /* MADDiscAppDelegate.m */,
+				B2BE1E6413DDE2F500245038 /* MainWindow.xib */,
+				716C68C61A3573B000CBAB1C /* Controllers */,
+				716C68C71A3573B000CBAB1C /* Models */,
+				716C68C81A3573B000CBAB1C /* View */,
+				B232D25C13DC82B20082D731 /* Libraries */,
 				B27774F7139E474400ADD035 /* Resources */,
 				B27774D4139E3FBC00ADD035 /* Supporting Files */,
 			);
@@ -257,10 +278,6 @@
 			isa = PBXGroup;
 			children = (
 				B287ADFF13C2DFAC00A20D66 /* Images and Background */,
-				B2BE1E6413DDE2F500245038 /* MainWindow.xib */,
-				B2777501139E481000ADD035 /* AnimatingViewController.xib */,
-				B27774FC139E47CB00ADD035 /* BackListViewController.xib */,
-				B27774E2139E3FBC00ADD035 /* MADDisc.xcdatamodeld */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -288,34 +305,6 @@
 				B287ADFB13C2DFA400A20D66 /* MADBackground.png */,
 			);
 			name = "Images and Background";
-			sourceTree = "<group>";
-		};
-		B287AE0F13C2EB8800A20D66 /* Data List Group */ = {
-			isa = PBXGroup;
-			children = (
-				B27774FA139E47CB00ADD035 /* BackListViewController.h */,
-				B27774FB139E47CB00ADD035 /* BackListViewController.m */,
-				B2777504139E484700ADD035 /* TextInputViewController.h */,
-				B2777505139E484700ADD035 /* TextInputViewController.m */,
-				B25A16FC13CCA6C00051CF09 /* Decision.h */,
-				B25A16FD13CCA6C00051CF09 /* Decision.m */,
-				B232D25813DC57760082D731 /* FNCRoundButton.h */,
-				B232D25913DC57760082D731 /* FNCRoundButton.m */,
-			);
-			name = "Data List Group";
-			sourceTree = "<group>";
-		};
-		B287AE1313C2F32400A20D66 /* Main Group */ = {
-			isa = PBXGroup;
-			children = (
-				B27774DC139E3FBC00ADD035 /* MADDiscAppDelegate.h */,
-				B27774DD139E3FBC00ADD035 /* MADDiscAppDelegate.m */,
-				B27774FF139E481000ADD035 /* AnimatingViewController.h */,
-				B2777500139E481000ADD035 /* AnimatingViewController.m */,
-				B287AE1013C2EBE300A20D66 /* MADBackgroundView.h */,
-				B287AE1113C2EBE300A20D66 /* MADBackgroundView.m */,
-			);
-			name = "Main Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,10 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2BE1E6313DDE2F500245038 /* MainWindow.xib in Resources */,
-				B27774FE139E47CB00ADD035 /* BackListViewController.xib in Resources */,
-				B2777503139E481000ADD035 /* AnimatingViewController.xib in Resources */,
 				B287ADFD13C2DFA400A20D66 /* MADBackground.png in Resources */,
-				B25A16F513CC8B720051CF09 /* MADDisc+FNCSelfDefined.h in Resources */,
 				B2D033CA13D727C000428DF9 /* UserSelectionDefault.plist in Resources */,
 				B2D033C313D71BF100428DF9 /* Localizable.strings in Resources */,
 				B2FEB5FC13D94E8B00BE3E8B /* SelectAll.png in Resources */,
@@ -390,6 +376,7 @@
 				B22D13D013DBA50B00BEC1E0 /* AppLogo.png in Resources */,
 				B22D13D113DBA50B00BEC1E0 /* FurnaceLogo.png in Resources */,
 				B22D13D513DBAA1700BEC1E0 /* EntryIcon.png in Resources */,
+				716C68D61A35754E00CBAB1C /* AnimatingViewController.xib in Resources */,
 				B232D26113DD03CF0082D731 /* ColorPreset.plist in Resources */,
 				B2E2B95513DDC48C00F4CE84 /* LongHand001.png in Resources */,
 				B2E2B95813DDC4EA00F4CE84 /* LongHand003.png in Resources */,
@@ -398,6 +385,7 @@
 				B2F73FAD13DE815F0087BB73 /* Icon.png in Resources */,
 				B2F73FAF13DE816F0087BB73 /* Icon@2x.png in Resources */,
 				B2F73FB113DE81D30087BB73 /* iTuneArtWork in Resources */,
+				716C68D81A35754E00CBAB1C /* BackListViewController.xib in Resources */,
 				B2F73FB313DE82100087BB73 /* Default@2x.png in Resources */,
 				B2F73FB513DE82170087BB73 /* Default.png in Resources */,
 			);
@@ -410,22 +398,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				716C68D51A35754E00CBAB1C /* AnimatingViewController.m in Sources */,
 				B27774DB139E3FBC00ADD035 /* main.m in Sources */,
+				716C68D91A35754E00CBAB1C /* FNCCALayerDrawingDelegate.m in Sources */,
 				B27774DE139E3FBC00ADD035 /* MADDiscAppDelegate.m in Sources */,
-				B27774E4139E3FBC00ADD035 /* MADDisc.xcdatamodeld in Sources */,
-				B27774FD139E47CB00ADD035 /* BackListViewController.m in Sources */,
-				B2777502139E481000ADD035 /* AnimatingViewController.m in Sources */,
-				B2777507139E484700ADD035 /* TextInputViewController.m in Sources */,
-				B23797DC13B7B03600F1B0BF /* FNCCheckItemCell.m in Sources */,
-				B21A194913BDDAFB004F9886 /* PieChartView.m in Sources */,
-				B21A194A13BDDAFB004F9886 /* FNCPieGraphController.m in Sources */,
-				B287AE1213C2EBE300A20D66 /* MADBackgroundView.m in Sources */,
-				B287AE1613C478EA00A20D66 /* AnimationView.m in Sources */,
-				B25A16FE13CCA6C00051CF09 /* Decision.m in Sources */,
-				B25A171813CCC0C60051CF09 /* FNCCheckItemView.m in Sources */,
-				B200FA9913D07CAC00EE81F8 /* FNCCALayerDrawingDelegate.m in Sources */,
-				B232D25A13DC57760082D731 /* FNCRoundButton.m in Sources */,
+				716C68DA1A35754E00CBAB1C /* FNCPieGraphController.m in Sources */,
+				716C68EF1A35757100CBAB1C /* FNCCheckItemCell.m in Sources */,
 				B232D25F13DC82EB0082D731 /* UIView+ImageOutput.m in Sources */,
+				716C68E11A35756100CBAB1C /* MADDisc.xcdatamodeld in Sources */,
+				716C68E01A35756100CBAB1C /* Decision.m in Sources */,
+				716C68EE1A35757100CBAB1C /* AnimationView.m in Sources */,
+				716C68F21A35757100CBAB1C /* MADBackgroundView.m in Sources */,
+				716C68DB1A35754E00CBAB1C /* TextInputViewController.m in Sources */,
+				716C68F11A35757100CBAB1C /* FNCRoundButton.m in Sources */,
+				716C68F01A35757100CBAB1C /* FNCCheckItemView.m in Sources */,
+				716C68D71A35754E00CBAB1C /* BackListViewController.m in Sources */,
+				716C68F31A35757100CBAB1C /* PieChartView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,12 +559,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B27774E2139E3FBC00ADD035 /* MADDisc.xcdatamodeld */ = {
+		716C68DE1A35756100CBAB1C /* MADDisc.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B27774E3139E3FBC00ADD035 /* MADDisc.xcdatamodel */,
+				716C68DF1A35756100CBAB1C /* MADDisc.xcdatamodel */,
 			);
-			currentVersion = B27774E3139E3FBC00ADD035 /* MADDisc.xcdatamodel */;
+			currentVersion = 716C68DF1A35756100CBAB1C /* MADDisc.xcdatamodel */;
 			path = MADDisc.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

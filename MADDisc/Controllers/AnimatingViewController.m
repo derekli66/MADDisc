@@ -9,7 +9,7 @@
 #import "AnimatingViewController.h"
 #import "MADBackgroundView.h"
 
-#define SHOW_CURRENT_METHOD NSLog(@"%@", NSStringFromSelector(_cmd))
+#define SHOW_CMD NSLog(@"%@", NSStringFromSelector(_cmd))
 @interface AnimatingViewController()
 -(void)delayPieChartUpdate:(id)sender;
 -(void)hideAndRevealShowBackListButton:(NSNotification*)notification;

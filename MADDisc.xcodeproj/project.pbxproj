@@ -22,6 +22,9 @@
 		716C68F11A35757100CBAB1C /* FNCRoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68E91A35757100CBAB1C /* FNCRoundButton.m */; };
 		716C68F21A35757100CBAB1C /* MADBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68EB1A35757100CBAB1C /* MADBackgroundView.m */; };
 		716C68F31A35757100CBAB1C /* PieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68ED1A35757100CBAB1C /* PieChartView.m */; };
+		71702A621A77731000F3E3D6 /* NSManagedObject+ObjectGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 71702A5F1A77731000F3E3D6 /* NSManagedObject+ObjectGenerator.m */; };
+		71702A631A77731000F3E3D6 /* DDCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71702A611A77731000F3E3D6 /* DDCoreDataManager.m */; };
+		71702A661A777C2200F3E3D6 /* NSManagedObjectContext-EasyFetch.m in Sources */ = {isa = PBXBuildFile; fileRef = 71702A651A777C2200F3E3D6 /* NSManagedObjectContext-EasyFetch.m */; };
 		B22D13D013DBA50B00BEC1E0 /* AppLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B22D13CE13DBA50B00BEC1E0 /* AppLogo.png */; };
 		B22D13D113DBA50B00BEC1E0 /* FurnaceLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B22D13CF13DBA50B00BEC1E0 /* FurnaceLogo.png */; };
 		B22D13D513DBAA1700BEC1E0 /* EntryIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B22D13D413DBAA1700BEC1E0 /* EntryIcon.png */; };
@@ -87,6 +90,12 @@
 		716C68EB1A35757100CBAB1C /* MADBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MADBackgroundView.m; sourceTree = "<group>"; };
 		716C68EC1A35757100CBAB1C /* PieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartView.h; sourceTree = "<group>"; };
 		716C68ED1A35757100CBAB1C /* PieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartView.m; sourceTree = "<group>"; };
+		71702A5E1A77731000F3E3D6 /* NSManagedObject+ObjectGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+ObjectGenerator.h"; sourceTree = "<group>"; };
+		71702A5F1A77731000F3E3D6 /* NSManagedObject+ObjectGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+ObjectGenerator.m"; sourceTree = "<group>"; };
+		71702A601A77731000F3E3D6 /* DDCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCoreDataManager.h; sourceTree = "<group>"; };
+		71702A611A77731000F3E3D6 /* DDCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCoreDataManager.m; sourceTree = "<group>"; };
+		71702A641A777C2200F3E3D6 /* NSManagedObjectContext-EasyFetch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext-EasyFetch.h"; sourceTree = "<group>"; };
+		71702A651A777C2200F3E3D6 /* NSManagedObjectContext-EasyFetch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext-EasyFetch.m"; sourceTree = "<group>"; };
 		B22D13CE13DBA50B00BEC1E0 /* AppLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppLogo.png; sourceTree = "<group>"; };
 		B22D13CF13DBA50B00BEC1E0 /* FurnaceLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FurnaceLogo.png; sourceTree = "<group>"; };
 		B22D13D413DBAA1700BEC1E0 /* EntryIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EntryIcon.png; sourceTree = "<group>"; };
@@ -176,6 +185,12 @@
 		716C68C71A3573B000CBAB1C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				71702A641A777C2200F3E3D6 /* NSManagedObjectContext-EasyFetch.h */,
+				71702A651A777C2200F3E3D6 /* NSManagedObjectContext-EasyFetch.m */,
+				71702A5E1A77731000F3E3D6 /* NSManagedObject+ObjectGenerator.h */,
+				71702A5F1A77731000F3E3D6 /* NSManagedObject+ObjectGenerator.m */,
+				71702A601A77731000F3E3D6 /* DDCoreDataManager.h */,
+				71702A611A77731000F3E3D6 /* DDCoreDataManager.m */,
 				716C68DC1A35756100CBAB1C /* Decision.h */,
 				716C68DD1A35756100CBAB1C /* Decision.m */,
 				716C68DE1A35756100CBAB1C /* MADDisc.xcdatamodeld */,
@@ -398,6 +413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71702A661A777C2200F3E3D6 /* NSManagedObjectContext-EasyFetch.m in Sources */,
 				716C68D51A35754E00CBAB1C /* AnimatingViewController.m in Sources */,
 				B27774DB139E3FBC00ADD035 /* main.m in Sources */,
 				716C68D91A35754E00CBAB1C /* FNCCALayerDrawingDelegate.m in Sources */,
@@ -408,11 +424,13 @@
 				716C68E11A35756100CBAB1C /* MADDisc.xcdatamodeld in Sources */,
 				716C68E01A35756100CBAB1C /* Decision.m in Sources */,
 				716C68EE1A35757100CBAB1C /* AnimationView.m in Sources */,
+				71702A621A77731000F3E3D6 /* NSManagedObject+ObjectGenerator.m in Sources */,
 				716C68F21A35757100CBAB1C /* MADBackgroundView.m in Sources */,
 				716C68DB1A35754E00CBAB1C /* TextInputViewController.m in Sources */,
 				716C68F11A35757100CBAB1C /* FNCRoundButton.m in Sources */,
 				716C68F01A35757100CBAB1C /* FNCCheckItemView.m in Sources */,
 				716C68D71A35754E00CBAB1C /* BackListViewController.m in Sources */,
+				71702A631A77731000F3E3D6 /* DDCoreDataManager.m in Sources */,
 				716C68F31A35757100CBAB1C /* PieChartView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

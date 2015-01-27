@@ -11,7 +11,7 @@
 
 static BOOL isDefaultPieChartOn = NO;
 
-#define SHOW_CURRENT_METHOD NSLog(@"%@", NSStringFromSelector(_cmd))
+#define SHOW_CMD NSLog(@"%@", NSStringFromSelector(_cmd))
 
 @interface PieChartItem : NSObject
 {

@@ -7,7 +7,7 @@
 //
 #import "FNCCheckItemView.h"
 
-#define SHOW_CURRENT_METHOD NSLog(@"%@", NSStringFromSelector(_cmd))
+#define SHOW_CMD NSLog(@"%@", NSStringFromSelector(_cmd))
 
 @interface FNCCheckItemView()
 -(UIView *)userColorViewWithColor:(UIColor*)theColor;

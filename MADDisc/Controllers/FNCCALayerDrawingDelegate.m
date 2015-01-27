@@ -8,14 +8,14 @@
 
 #import "FNCCALayerDrawingDelegate.h"
 
-#define SHOW_CURRENT_METHOD NSLog(@"%@", NSStringFromSelector(_cmd))
+#define SHOW_CMD NSLog(@"%@", NSStringFromSelector(_cmd))
 
 @implementation FNCCALayerDrawingDelegate
 @synthesize frame = _frame;
 #pragma mark - CALayer Drawing Delegate
 //longHandLayer delegate method to draw long hand layer
 -(void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx{
-    SHOW_CURRENT_METHOD;
+    SHOW_CMD;
     //Draw a line
     
     CGContextSaveGState(ctx);

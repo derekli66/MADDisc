@@ -7,10 +7,11 @@
 //
 
 #import "FNCPieGraphController.h"
+#import "DDCoreDataManager.h"
 #import "MADBackgroundView.h"
 #import <sys/types.h>
 #import <sys/sysctl.h>
-#define SHOW_CURRENT_METHOD NSLog(@"%@", NSStringFromSelector(_cmd))
+
 
 static BOOL isDefaultPieChartOn = NO;
 
@@ -18,7 +19,7 @@ static BOOL isDefaultPieChartOn = NO;
 @property (nonatomic) CGFloat destinationAngles;//In Degree unit
 @property (nonatomic) CGFloat finalDestinationAngles;//In Pi unit
 @property (nonatomic, copy) NSString *finalResults;
--(NSArray*)fetchingUserSelection;//回傳使用者的選擇項目
+-(NSArray*)fetchUserSelections;//回傳使用者的選擇項目
 -(NSInteger)userSelectionCount;//回傳使用者選擇了多少項目
 -(UIImage*)createImageFromView:(UIView* )theView;//為了將 Pie Chart View 轉換成 UIImage 再餵給 imageView
 -(PieChartView*)createPieChartView;//產生 Pie Chart View
@@ -37,14 +38,8 @@ static BOOL isDefaultPieChartOn = NO;
 -(void)resetDefaultPieChartToPieChart:(id)sender;
 @end
 
-@implementation FNCPieGraphController 
-@synthesize finalResults = _finalResults;
-@synthesize destinationAngles = _destinationAngles;
-@synthesize finalDestinationAngles = _finalDestinationAngles;//This variable is set to Pi unit
-@synthesize managedObjectContext=__managedObjectContext;
-@synthesize imageView = _imageView;
-@synthesize animationView = _animationView;
-@synthesize currentPieArray = _currentPieArray;
+@implementation FNCPieGraphController
+
 #pragma mark - FNCPieGraphDelegate Methods
 -(void)imageViewWithPieAngles:(NSArray*)arrayOfPieAngle
 {
@@ -227,7 +222,7 @@ static BOOL isDefaultPieChartOn = NO;
 
 -(NSString*)finalResultsCalculatorWithRotationClockwise:(BOOL)isClockwise
 {
-    NSArray *userArray = [self fetchingUserSelection];
+    NSArray *userArray = [self fetchUserSelections];
     NSArray *degreeArray = self.currentPieArray;
     NSString *resultString = nil;
 
@@ -260,6 +255,7 @@ static BOOL isDefaultPieChartOn = NO;
     
     return resultString;
 }
+
 -(NSArray*)generatePossibilityArray:(NSArray*)userArray
 {
     NSMutableArray *valueArray = [NSMutableArray arrayWithCapacity:[self userSelectionCount]];
@@ -278,6 +274,7 @@ static BOOL isDefaultPieChartOn = NO;
     
     return valueArray;
 }
+
 -(CGFloat)generateDestinationAngles
 {
     CGFloat theAngles = (1+arc4random()%720)/2;
@@ -289,30 +286,15 @@ static BOOL isDefaultPieChartOn = NO;
     _destinationAngles = theAngles;
     return _destinationAngles;
 }
--(NSArray*)fetchingUserSelection
+
+-(NSArray*)fetchUserSelections
 {
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Decision" inManagedObjectContext:self.managedObjectContext];
-    NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
-    [request setEntity:entityDescription];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"checked == %@", [NSNumber numberWithBool:YES]];
-    [request setPredicate:predicate];
-    
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:NO];
-	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-    [request setSortDescriptors:sortDescriptors];
-    
-    NSError *error = nil;
-    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
-    
-    [sortDescriptors release];
-    [sortDescriptor release];
-    
-    return array;
+    return [[DDCoreDataManager coreDataManager] fetchUserSelections];
 }
+
 -(NSInteger)userSelectionCount
 {
-    NSArray *array = [self fetchingUserSelection];
+    NSArray *array = [self fetchUserSelections];
     NSInteger count;
     if (array == nil) {
         count = 0;
@@ -321,6 +303,7 @@ static BOOL isDefaultPieChartOn = NO;
     }
     return count;
 }
+
 -(UIImage*)createImageFromView:(UIView* )theView
 {
     if (&UIGraphicsBeginImageContextWithOptions) 
@@ -334,9 +317,10 @@ static BOOL isDefaultPieChartOn = NO;
     
     return myImage;
 }
+
 -(PieChartView*)createPieChartView
 {
-    NSArray *array = [self fetchingUserSelection];
+    NSArray *array = [self fetchUserSelections];
     NSArray *valueArray = [self generatePossibilityArray:array];
     
     CGRect frame = [[UIScreen mainScreen] applicationFrame];
@@ -346,6 +330,7 @@ static BOOL isDefaultPieChartOn = NO;
 
     return  [pieView autorelease]; 
 }
+
 -(PieChartView*)createDefaultPieChartView
 {
     CGRect frame = [[UIScreen mainScreen] applicationFrame];
@@ -397,8 +382,9 @@ static BOOL isDefaultPieChartOn = NO;
     
 }
 
--(void)resetPieChartToDefaultPieChart:(id)sender{
-    SHOW_CURRENT_METHOD;
+-(void)resetPieChartToDefaultPieChart:(id)sender
+{
+    SHOW_CMD;
     CATransform3D preTransform = CATransform3DIdentity;
     CATransform3D overTransform = CATransform3DScale(preTransform, 1.06, 1.06, 1.0);//over size
     __block UIImage *tempImage;
@@ -427,8 +413,9 @@ static BOOL isDefaultPieChartOn = NO;
                      }];
 }
 
--(void)resetDefaultPieChartToPieChart:(id)sender{
-    SHOW_CURRENT_METHOD;
+-(void)resetDefaultPieChartToPieChart:(id)sender
+{
+    SHOW_CMD;
     CATransform3D preTransform = CATransform3DIdentity;
     CATransform3D overTransform = CATransform3DScale(preTransform, 1.06, 1.06, 1.0);//over size
     __block UIImage *tempImage;
@@ -458,7 +445,8 @@ static BOOL isDefaultPieChartOn = NO;
                      }];
 }
 
--(void)updatePieGraphInConditionMask:(FNCPieGraphMask)theMask{
+-(void)updatePieGraphInConditionMask:(FNCPieGraphMask)theMask
+{
     switch (theMask) {
         case kFNCPieGraphNormalMask:
             //NSLog(@"kFNCPieGraphNormalMask");
@@ -478,10 +466,9 @@ static BOOL isDefaultPieChartOn = NO;
     }
 }
 
-
-
 //查詢使用者目前的使用平台為何？
--(NSString*)checkPlatformVersion{
+-(NSString*)checkPlatformVersion
+{
     size_t size;
     sysctlbyname("hw.machine", NULL, &size, NULL, 0);
     
@@ -498,7 +485,8 @@ static BOOL isDefaultPieChartOn = NO;
 }
 
 #pragma mark - Memory Management
--(void)dealloc{
+-(void)dealloc
+{
     self.animationView = nil;
     self.imageView = nil;
     self.currentPieArray= nil;
@@ -507,7 +495,8 @@ static BOOL isDefaultPieChartOn = NO;
 }
 
 #pragma mark - Initialization
--(void)awakeFromNib{
+-(void)awakeFromNib
+{
     CGRect screenRect = [UIScreen mainScreen].applicationFrame;
     AnimationView *theView = [[AnimationView alloc] initWithFrame:CGRectMake(0.0, 0.0, screenRect.size.width, screenRect.size.width)];
     theView.center = CGPointMake(screenRect.size.width/2, 200.0);
@@ -527,4 +516,5 @@ static BOOL isDefaultPieChartOn = NO;
     
     srandom(time(0));
 }
+
 @end

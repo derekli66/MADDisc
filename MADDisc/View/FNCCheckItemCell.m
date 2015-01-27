@@ -10,7 +10,7 @@
 #import "FNCCheckItemView.h"
 
 #define ROW_HEIGHT 50
-#define SHOW_CURRENT_METHOD NSLog(@"%@", NSStringFromSelector(_cmd))
+#define SHOW_CMD NSLog(@"%@", NSStringFromSelector(_cmd))
 
 @interface FNCCheckItemCell()
 @property (nonatomic, retain) FNCCheckItemView *checkItemView;

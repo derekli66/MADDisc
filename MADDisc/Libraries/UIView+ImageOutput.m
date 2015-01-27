@@ -9,7 +9,8 @@
 #import "UIView+ImageOutput.h"
 @implementation NSObject (PlistReader)
 //Read Plist file from bundle
--(NSArray*)readPlistFromBundleWithFile:(NSString*)fileName{
+- (NSArray*)readPlistFromBundleWithFile:(NSString*)fileName
+{
     NSString *string = [[NSBundle mainBundle] pathForResource:fileName ofType:@"plist"];
     NSData *plistData = [[NSFileManager defaultManager] contentsAtPath:string];
     
@@ -37,8 +38,9 @@
 
 @implementation UIView (ImageOutput)
 //Transform any UIView or UIView subclass into UIImage
-+(UIImage *)imageFromViewContents:(UIView*)theView{
-    if (&UIGraphicsBeginImageContextWithOptions) 
++ (UIImage *)imageFromViewContents:(UIView *)theView
+{
+    if (UIGraphicsBeginImageContextWithOptions != NULL)
         UIGraphicsBeginImageContextWithOptions(theView.bounds.size, NO, 0.0);
     else
         UIGraphicsBeginImageContext(theView.bounds.size);
@@ -49,8 +51,9 @@
     
     return myImage;
 }
+
 //Transform any UIView or UIView subclass itself into UIImage
--(UIImage *)imageFromCurrentContents{
+- (UIImage *)imageFromCurrentContents{
     if (&UIGraphicsBeginImageContextWithOptions) 
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
     else
@@ -62,8 +65,9 @@
     
     return myImage;
 }
+
 //create a round corner UIView or UIView subclass with border
-+(UIView *)cornerViewWithBorderColor:(UIColor*)theColor andFrame:(CGRect)frame{
++ (UIView *)cornerViewWithBorderColor:(UIColor*)theColor andFrame:(CGRect)frame{
     UIView *theView = [[UIView alloc] initWithFrame:frame];
     theView.layer.cornerRadius = 4;
     theView.layer.borderWidth = 1.5;
@@ -76,7 +80,8 @@
 
 @implementation UIViewController (ImageOutput)
 //Transform any UIView or UIView subclass into UIImage
--(UIImage *)imageFromViewContents:(UIView*)theView{
+- (UIImage *)imageFromViewContents:(UIView*)theView
+{
     if (&UIGraphicsBeginImageContextWithOptions) 
         UIGraphicsBeginImageContextWithOptions(theView.bounds.size, NO, 0.0);
     else
@@ -88,8 +93,10 @@
     
     return myImage;
 }
+
 //Transform controller itself's view into UIImage 
--(UIImage *)imageFromControllerView{
+- (UIImage *)imageFromControllerView
+{
     if (&UIGraphicsBeginImageContextWithOptions) 
         UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 0.0);
     else
@@ -101,10 +108,12 @@
     
     return myImage;
 }
+
 @end
 
 @implementation UIControl (FNCCustomizedControlViewCategory)
-+(UIControl *)cornerWithBorderColor:(UIColor*)theColor andFrame:(CGRect)frame{
++ (UIControl *)cornerWithBorderColor:(UIColor*)theColor andFrame:(CGRect)frame
+{
     UIControl *theControl = [[UIControl alloc] initWithFrame:frame];
     theControl.layer.cornerRadius = 4;
     theControl.layer.borderWidth = 2.0;
@@ -116,7 +125,8 @@
 @end
 
 @implementation UIColor (ImageOutput)
-+(CGFloat)colorComponetFromColor:(UIColor*)aColor inType:(FNCColorComponet)componet{
++ (CGFloat)colorComponetFromColor:(UIColor*)aColor inType:(FNCColorComponet)componet
+{
     if (aColor == nil) {
         aColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0];
     }

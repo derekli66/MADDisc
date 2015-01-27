@@ -15,3 +15,5 @@
     #import "MADDisc+FNCSelfDefined.h"
     #import "UIView+ImageOutput.h"
 #endif
+
+#define SHOW_CMD NSLog(@"%@", NSStringFromSelector(_cmd))

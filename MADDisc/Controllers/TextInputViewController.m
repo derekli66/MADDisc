@@ -10,7 +10,7 @@
 #import "Decision.h"
 #import "FNCRoundButton.h"
 
-#define SHOW_CURRENT_METHOD NSLog(@"%@", NSStringFromSelector(_cmd))
+#define SHOW_CMD NSLog(@"%@", NSStringFromSelector(_cmd))
 
 @interface TextInputViewController()
 @property (nonatomic, retain) UITextField *decisionInputTextField;//Set up user's preference item
@@ -273,7 +273,7 @@
     _colorView.layer.masksToBounds = YES;
 }
 -(void)colorViewChangeColor:(id)sender{
-    SHOW_CURRENT_METHOD;
+    SHOW_CMD;
     if ([sender isKindOfClass:[UIButton class]]) {
         FNCRoundButton *actionButton = (FNCRoundButton*)sender;
         _colorView.backgroundColor = actionButton.color;
@@ -394,7 +394,7 @@
     return 0;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-        SHOW_CURRENT_METHOD;
+        SHOW_CMD;
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -439,7 +439,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    SHOW_CURRENT_METHOD;
+    SHOW_CMD;
     CGFloat heightForRow;
     if (indexPath.section == 0 && indexPath.row == 1) {
         //第二期更新項目

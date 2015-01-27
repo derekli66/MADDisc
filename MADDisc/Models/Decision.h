@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "NSManagedObject+ObjectGenerator.h"
 
 
-@interface Decision : NSManagedObject {
-@private
-}
+@interface Decision : NSManagedObject
+
 @property (nonatomic, retain) NSString * group;
 @property (nonatomic, retain) NSString * createTime;
 @property (nonatomic, retain) NSNumber * order;

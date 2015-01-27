@@ -11,7 +11,6 @@
 #import "FNCPieGraphController.h"
 
 #define degreesToRadians(x) (M_PI*(x)/180.0)
-#define SHOW_CURRENT_METHOD NSLog(@"%@",NSStringFromSelector(_cmd))
 
 static BOOL isSensorLayerAdded = NO;
 
@@ -35,8 +34,10 @@ static BOOL isSensorLayerAdded = NO;
 @synthesize animationLayerBounds;
 @synthesize longHandLayer = _longHandLayer;
 @synthesize touchSensorLayer = _touchSensorLayer;
+
 #pragma mark - Custom Method
--(void)setAnimationLayerBounds:(CGRect)layerBounds{
+-(void)setAnimationLayerBounds:(CGRect)layerBounds
+{
     CALayer *containerLayer = [_longHandLayer superlayer];
     
     containerLayer.bounds = layerBounds;
@@ -53,14 +54,19 @@ static BOOL isSensorLayerAdded = NO;
     
     preTransform = containerLayer.transform;//事先求取 containerLayer 的原始變形值
 }
--(void)setAnimationLayerContent:(id)content{
+
+-(void)setAnimationLayerContent:(id)content
+{
     _longHandLayer.contents = content;
 }
--(void)setDestinationAngles:(CGFloat)destinationAngles{
+
+-(void)setDestinationAngles:(CGFloat)destinationAngles
+{
     //destinationAngles 使用 角度
     //endAngles 使用 徑度( Pi )
     endAngles = degreesToRadians(destinationAngles + 360*14);
 }
+
 -(void)addTouchSensorLayer{
     isSensorLayerAdded = YES;
     [CATransaction begin];
@@ -68,14 +74,18 @@ static BOOL isSensorLayerAdded = NO;
     [self.longHandLayer.superlayer addSublayer:self.touchSensorLayer];
     [CATransaction commit];
 }
--(void)removeTouchSensorLayer{
+
+-(void)removeTouchSensorLayer
+{
     isSensorLayerAdded = NO;
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
     [self.touchSensorLayer removeFromSuperlayer];
     [CATransaction commit];
 }
--(void)resetTimeAndPoint{
+
+-(void)resetTimeAndPoint
+{
     startTime = 0.0;
     endTime = 0.0;
     startPointAtSenorLayer = CGPointZero;
@@ -85,7 +95,9 @@ static BOOL isSensorLayerAdded = NO;
     startPoint = CGPointZero;
     endPoint = CGPointZero;
 }
--(FNCRotationType)userRotationConditionWithStartPoint:(CGPoint)firstPoint andEndPoint:(CGPoint)lastPoint{
+
+-(FNCRotationType)userRotationConditionWithStartPoint:(CGPoint)firstPoint andEndPoint:(CGPoint)lastPoint
+{
     FNCRotationType condition;
     
     if (lastPoint.y < self.center.y) {
@@ -104,6 +116,7 @@ static BOOL isSensorLayerAdded = NO;
     
     return condition;
 }
+
 #pragma mark - Initialization
 - (id)initWithFrame:(CGRect)frame
 {    
@@ -136,7 +149,9 @@ static BOOL isSensorLayerAdded = NO;
     }
     return self;
 }
--(id)initWithCoder:(NSCoder *)aDecoder{
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
     self = [super initWithCoder:aDecoder];
     if (self) {
         //設定一個 containLayer 裝載 _longHandLalyer, 原因是要擴大 _longHandLayer 的觸控範圍
@@ -179,7 +194,8 @@ static BOOL isSensorLayerAdded = NO;
 
 #pragma mark - Animation Control Methods
 //根據選轉方向設定順時針或是逆時針旋轉動畫
--(void)rotationAnimationWithLayer:(CALayer*)animatingLayer inRightSideDirection:(BOOL)isRightSide{
+-(void)rotationAnimationWithLayer:(CALayer*)animatingLayer inRightSideDirection:(BOOL)isRightSide
+{
     _finalDestinationAngles = isRightSide? endAngles:endAngles*(-1);
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     animation.duration = 5.0;
@@ -192,8 +208,10 @@ static BOOL isSensorLayerAdded = NO;
     
     self.userInteractionEnabled = NO;
 }
+
 //將指針恢復到原始位置以及移除先前的 animation 物件
--(void)backToOriginalState{
+-(void)backToOriginalState
+{
     [CATransaction begin];
     [CATransaction setValue:[NSNumber numberWithDouble:1.0] forKey:kCATransactionAnimationDuration];
     [self.longHandLayer.superlayer removeAnimationForKey:@"transform.rotation.z"];
@@ -202,26 +220,33 @@ static BOOL isSensorLayerAdded = NO;
     
     self.userInteractionEnabled = YES;
 }
+
 // CAAnimation Delegate Method
--(void)animationDidStart:(CAAnimation *)anim{
+-(void)animationDidStart:(CAAnimation *)anim
+{
     [self.delegate animationDidStartInView:self];
 }
+
 -(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
     [self.delegate animationDidStopInView:self];
     [self performSelector:@selector(backToOriginalState) withObject:nil afterDelay:1.5];
     [self resetTimeAndPoint];
     [self removeTouchSensorLayer];
 }
+
 //當手指移動時，讓指針跟著手指旋轉
--(void)rotateLongHandLayerWithPoint:(CGPoint)currentPoint{
+-(void)rotateLongHandLayerWithPoint:(CGPoint)currentPoint
+{
     [CATransaction begin];
     [CATransaction setValue:[NSNumber numberWithDouble:0.0] forKey:kCATransactionAnimationDuration];
     CGFloat rot = atan2(-(_longHandLayer.superlayer.position.x - currentPoint.x), _longHandLayer.superlayer.position.y - currentPoint.y);
     self.longHandLayer.superlayer.transform = CATransform3DMakeRotation(rot, 0.0, 0.0, 1.0);
     [CATransaction commit];
 }
+
 //show up a cheating alert to user
--(void)showCheatingAlert{
+-(void)showCheatingAlert
+{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Stop Cheating", @"Tell user not cheat")  //**@@**Preparing for international NSString
                                                     message:NSLocalizedString(@"Please swipe the long hand with fast speed!",@"Tell user how to trigger long hand rotation")  //**@@**Preparing for international NSString
                                                    delegate:nil 
@@ -230,13 +255,15 @@ static BOOL isSensorLayerAdded = NO;
     [alert show];
     [alert release];
 }
+
 //*******************************************************
 //當手指觸碰指針範圍時，新增一個 touch sensor layer 在 container layer 上
 //container layer 的用途為增加手指的感應範圍，以增加指針動畫的靈敏度
 //所偵測的點若包含在 sensor layer 當中，即記錄當下時間，以作為觸發旋轉動畫的判斷
 //同時記錄手指在 View 上的開始以及最後位置，作為順時針以及逆時針旋轉的判斷依據
 //*******************************************************
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
     CGPoint currentPoint = [[touches anyObject] locationInView:self];
 
     startPointAtContainerLayer = [self.layer convertPoint:currentPoint toLayer:self.longHandLayer.superlayer];
@@ -260,7 +287,9 @@ static BOOL isSensorLayerAdded = NO;
     
     startPoint = currentPoint;
 }
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
     CGPoint currentPoint = [[touches anyObject] locationInView:self];
     
     startPointAtContainerLayer = [self.layer convertPoint:currentPoint toLayer:self.longHandLayer.superlayer];
@@ -284,7 +313,9 @@ static BOOL isSensorLayerAdded = NO;
     
     startPoint = currentPoint;
 }
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
     CGPoint currentPoint = [[touches anyObject] locationInView:self];
     
     endPointAtContainerLayer = [self.layer convertPoint:currentPoint toLayer:self.longHandLayer.superlayer];

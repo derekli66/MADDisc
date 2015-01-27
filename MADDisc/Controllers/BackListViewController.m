@@ -10,7 +10,7 @@
 #import "TextInputViewController.h"
 
 #define ROW_HEIGHT 50
-#define SHOW_CURRENT_METHOD NSLog(@"%@", NSStringFromSelector(_cmd))
+#define SHOW_CMD NSLog(@"%@", NSStringFromSelector(_cmd))
 
 static BOOL shouldImageViewHide = NO;
 static BOOL isReordering = NO;
@@ -216,7 +216,7 @@ static BOOL isReordering = NO;
     self.tableView.rowHeight = ROW_HEIGHT;
 }
 - (void)viewWillAppear:(BOOL)animated
-{SHOW_CURRENT_METHOD;
+{SHOW_CMD;
     [super viewWillAppear:animated];
     [self.tableView reloadData];
 }

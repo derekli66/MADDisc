@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7152A2F41A94F7DC0041DC7D /* NSManagedObjectContext+ContextSave.m in Sources */ = {isa = PBXBuildFile; fileRef = 7152A2F31A94F7DC0041DC7D /* NSManagedObjectContext+ContextSave.m */; };
 		716C68D51A35754E00CBAB1C /* AnimatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68CA1A35754E00CBAB1C /* AnimatingViewController.m */; };
 		716C68D61A35754E00CBAB1C /* AnimatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716C68CB1A35754E00CBAB1C /* AnimatingViewController.xib */; };
 		716C68D71A35754E00CBAB1C /* BackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68CD1A35754E00CBAB1C /* BackListViewController.m */; };
@@ -63,6 +64,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7152A2F21A94F7DC0041DC7D /* NSManagedObjectContext+ContextSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+ContextSave.h"; sourceTree = "<group>"; };
+		7152A2F31A94F7DC0041DC7D /* NSManagedObjectContext+ContextSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+ContextSave.m"; sourceTree = "<group>"; };
+		7152A2F51A94F8CC0041DC7D /* NSManagedObjectContextTypeDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextTypeDefine.h; sourceTree = "<group>"; };
 		716C68C91A35754E00CBAB1C /* AnimatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatingViewController.h; sourceTree = "<group>"; };
 		716C68CA1A35754E00CBAB1C /* AnimatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatingViewController.m; sourceTree = "<group>"; };
 		716C68CB1A35754E00CBAB1C /* AnimatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimatingViewController.xib; sourceTree = "<group>"; };
@@ -185,10 +189,13 @@
 		716C68C71A3573B000CBAB1C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7152A2F51A94F8CC0041DC7D /* NSManagedObjectContextTypeDefine.h */,
 				71702A641A777C2200F3E3D6 /* NSManagedObjectContext-EasyFetch.h */,
 				71702A651A777C2200F3E3D6 /* NSManagedObjectContext-EasyFetch.m */,
 				71702A5E1A77731000F3E3D6 /* NSManagedObject+ObjectGenerator.h */,
 				71702A5F1A77731000F3E3D6 /* NSManagedObject+ObjectGenerator.m */,
+				7152A2F21A94F7DC0041DC7D /* NSManagedObjectContext+ContextSave.h */,
+				7152A2F31A94F7DC0041DC7D /* NSManagedObjectContext+ContextSave.m */,
 				71702A601A77731000F3E3D6 /* DDCoreDataManager.h */,
 				71702A611A77731000F3E3D6 /* DDCoreDataManager.m */,
 				716C68DC1A35756100CBAB1C /* Decision.h */,
@@ -417,6 +424,7 @@
 				716C68D51A35754E00CBAB1C /* AnimatingViewController.m in Sources */,
 				B27774DB139E3FBC00ADD035 /* main.m in Sources */,
 				716C68D91A35754E00CBAB1C /* FNCCALayerDrawingDelegate.m in Sources */,
+				7152A2F41A94F7DC0041DC7D /* NSManagedObjectContext+ContextSave.m in Sources */,
 				B27774DE139E3FBC00ADD035 /* MADDiscAppDelegate.m in Sources */,
 				716C68DA1A35754E00CBAB1C /* FNCPieGraphController.m in Sources */,
 				716C68EF1A35757100CBAB1C /* FNCCheckItemCell.m in Sources */,

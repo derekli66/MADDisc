@@ -8,6 +8,7 @@
 
 #import "AnimatingViewController.h"
 #import "MADBackgroundView.h"
+#import "DDCoreDataManager.h"
 
 #define SHOW_CMD NSLog(@"%@", NSStringFromSelector(_cmd))
 @interface AnimatingViewController()
@@ -23,11 +24,14 @@
 @synthesize pieGraphController = _pieGraphController;
 
 #pragma mark - BackListViewControllerProtocol Methods
--(void)backListViewControllerFinished:(id)sender{
+-(void)backListViewControllerFinished:(id)sender
+{
     [self performSelector:@selector(delayPieChartUpdate:) withObject:nil afterDelay:0.3];
     [self.navigationController dismissModalViewControllerAnimated:YES];
 }
--(void)delayPieChartUpdate:(id)sender{
+
+-(void)delayPieChartUpdate:(id)sender
+{
     [self.pieGraphController performSelector:@selector(updatePieGraph)];
 }
 
@@ -73,13 +77,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideAndRevealShowBackListButton:) name:kFNCRotationGameDidStop object:nil];
 
     [self.view addSubview:self.madDiscView];
-    
-    //廣告  banner 設定
-//    [self createADBannerView];
-//    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kFNCVersionKey] isEqualToString:@"Free"]) {
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(revealADBannerView) name:kRevealADBannerView object:nil];
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideADBannerView) name:kHideADBannerView object:nil];
-//    }
 }
 
 - (void)viewDidUnload
@@ -104,17 +101,20 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
 #pragma mark - Customized Methods
--(IBAction)showBackList:(id)sender{
+-(IBAction)showBackList:(id)sender
+{    
     BackListViewController *aViewController = (BackListViewController*)self.navigationController.topViewController;
-    aViewController.managedObjectContext = self.managedObjectContext;
+    aViewController.managedObjectContext = [[DDCoreDataManager coreDataManager] mainThreadConext];
     
     UIImage *image = [UIImage imageNamed:@"MADBackground.png"];
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:image];
     [self presentModalViewController:self.navigationController animated:YES];
 }
 
--(void)hideAndRevealShowBackListButton:(NSNotification*)notification{
+-(void)hideAndRevealShowBackListButton:(NSNotification*)notification
+{
     if ([[notification name] isEqualToString:kFNCRotationGameDidStart]) {
         self.showBackListButton.enabled = NO;
     }
@@ -122,4 +122,5 @@
         self.showBackListButton.enabled = YES;
     }
 }
+
 @end

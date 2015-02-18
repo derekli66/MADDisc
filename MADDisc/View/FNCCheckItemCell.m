@@ -59,12 +59,14 @@
     [self.contentView addSubview:self.checkedButton];
     [button release];
 }
+
 //在背景執行 managedObjectContext 的儲存動作
 -(void)delaySaving{
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         [self saveCheckedItem:self.checked];
     });
 }
+
 -(void)tapCheckButton:(id)sender{
     //先行確認有無達到十個最高選項 MAX_USER_SELECTION_COUNT 內定為 10
     if ([self userSelectionCount] == HUGE_VALF) {
@@ -89,16 +91,20 @@
                          }];
                      }];
 }
--(void)saveCheckedItem:(BOOL)currentCheck{
+
+-(void)saveCheckedItem:(BOOL)currentCheck
+{
     Decision *decision  = (Decision*)self.managedObject;
     decision.checked = [NSNumber numberWithBool:self.checked];
-    [self.managedObjectContext save:nil];
 }
--(void)hidesAndRevealImageView:(NSNotification*)notification{
+
+-(void)hidesAndRevealImageView:(NSNotification*)notification
+{
     [UIView animateWithDuration:0.38 animations:^{  
         self.buttonImageView.alpha = (self.buttonImageView.alpha == 1) ? 0: 1;
     }];
 }
+
 -(void)updateImageViewWithCheck:(BOOL)currentCheck{
     UIImage *normalImage = [UIImage imageNamed:@"FNCUnChecked@2x.png"];
     UIImage *highlightImage = [UIImage imageNamed:@"FNCChecked@2x.png"];
@@ -110,14 +116,17 @@
     }
 
 }
+
 -(void)redisplay{
     [self.checkItemView setNeedsDisplay];
     [self updateImageViewWithCheck:self.checked];
 }
+
 //重置 viewStateMask 到 kFNCCellStateDefaultMask, 在BackListView 中 將重複使用的 cell 還原其  viewStateMask 到 kFNCCellStateDefaultMask
 -(void)resetCellStateMask{
     [self.checkItemView setViewStateMask:kFNCCellStateDefaultMask];
 }
+
 -(void)uncheckedAndCheckedAll:(NSNotification*)notification{
     if ([[notification name] isEqualToString:kCleanAllUserDefaults]) {
             self.checked = NO;
@@ -130,6 +139,7 @@
     //There is no save action for managedObjectContext since there are invisible cell which can not be notified.
     //Saving is executed by TableViewController (BackListViewController)
 }
+
 -(NSArray*)fetchingUserSelection{
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Decision" inManagedObjectContext:self.managedObjectContext];
     NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
@@ -150,6 +160,7 @@
     
     return array;
 }
+
 -(NSInteger)userSelectionCount{
     NSArray *array = [self fetchingUserSelection];
     NSInteger count;
@@ -160,6 +171,7 @@
     }
     return count;
 }
+
 -(void)performAlertViewWhenFull{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Selection Is Full", @"Selection Is Full 選項已經額滿")   //**@@** Localized string
                                                     message:NSLocalizedString(@"Your choices are more than 10 items. Only 10 choices you can choose.", @"最高只能選擇 10 個的提示")  //**@@** Localized string
@@ -169,6 +181,7 @@
     [alert show];
     [alert release];
 }
+
 -(void)createButtonImageView{
 #define BIV_ORIGIN_X 10
 #define BIV_ORIGIN_Y 10
@@ -182,6 +195,7 @@
     [self.contentView addSubview:self.buttonImageView];
     [aImageView release];
 }
+
 #pragma mark - Initialization
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -200,6 +214,7 @@
     }
     return self;
 }
+
 #pragma mark - UIView Methods
 -(void)layoutSubviews{
     [super layoutSubviews];
@@ -215,11 +230,13 @@
                                         self.contentView.frame.size.height
                                         );
 }
+
 #pragma mark - UITableViewCell Methods
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
 }
+
 -(void)willTransitionToState:(UITableViewCellStateMask)state{
     [super willTransitionToState:state];
     
@@ -233,6 +250,7 @@
         [self.checkItemView setViewStateMask:kFNCCellStateNone];
     }
 }
+
 #pragma mark - Memory Management
 - (void)dealloc
 {

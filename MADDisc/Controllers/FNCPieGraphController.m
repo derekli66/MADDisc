@@ -295,6 +295,9 @@ static BOOL isDefaultPieChartOn = NO;
 -(NSInteger)userSelectionCount
 {
     NSArray *array = [self fetchUserSelections];
+    
+    NSLog(@"fetch array count: %d", [array count]);
+    
     NSInteger count;
     if (array == nil) {
         count = 0;

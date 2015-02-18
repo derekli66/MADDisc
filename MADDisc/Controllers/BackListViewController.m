@@ -8,6 +8,7 @@
 
 #import "BackListViewController.h"
 #import "TextInputViewController.h"
+#import "DDCoreDataManager.h"
 
 #define ROW_HEIGHT 50
 #define SHOW_CMD NSLog(@"%@", NSStringFromSelector(_cmd))
@@ -79,6 +80,7 @@ static BOOL isReordering = NO;
 -(void)delayTableViewReload{
     [self.tableView reloadData];
 }
+
 //當 table view 在 editing mode 的時候，隱藏 table view cell 上的 imageView
 -(void)syncUIWithCell:(UITableViewCell*)cell{
     if (shouldImageViewHide == YES) {
@@ -87,6 +89,7 @@ static BOOL isReordering = NO;
         cell.imageView.alpha = 1;
     }
 }
+
 -(void)clearAllUserDefaults:(id)sender{
     [[NSNotificationCenter defaultCenter] postNotificationName:kCleanAllUserDefaults object:nil];
     //不使用背景處理方式，因為若使用者來回切換 全部清除以及全部選擇，會造成 background thread 來不及更新到 main thread
@@ -96,6 +99,7 @@ static BOOL isReordering = NO;
     }
     [self.managedObjectContext save:nil];
 }
+
 -(void)selectAllUserDefaults:(id)sender{
     [[NSNotificationCenter defaultCenter] postNotificationName:kSelectAllUserDefaults object:nil];
     //不使用背景處理方式，因為若使用者來回切換 全部清除以及全部選擇，會造成 background thread 來不及更新到 main thread
@@ -105,6 +109,7 @@ static BOOL isReordering = NO;
     }
     [self.managedObjectContext save:nil];
 }
+
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
     if (&UIGraphicsBeginImageContextWithOptions) 
         UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
@@ -126,6 +131,7 @@ static BOOL isReordering = NO;
     }
     return self;
 }
+
 #pragma mark - Memory Management
 - (void)dealloc
 {
@@ -134,11 +140,13 @@ static BOOL isReordering = NO;
     self.managedObjectContext = nil;
     [super dealloc];
 }
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
 }
+
 - (void)viewDidUnload
 {
     self.managedObjectContext = nil;
@@ -148,11 +156,15 @@ static BOOL isReordering = NO;
 }
 
 #pragma mark - View lifecycle
--(void)backToDelegateView{
-    if ([self.delegate respondsToSelector:@selector(backListViewControllerFinished:)]) {
-        [self.delegate backListViewControllerFinished:self];
-    }
+-(void)backToDelegateView
+{
+    [self.managedObjectContext contextSaveWithCompletion:^(BOOL completed) {
+        if ([self.delegate respondsToSelector:@selector(backListViewControllerFinished:)])    {
+            [self.delegate backListViewControllerFinished:self];
+        }
+    }];
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -215,8 +227,10 @@ static BOOL isReordering = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.rowHeight = ROW_HEIGHT;
 }
+
 - (void)viewWillAppear:(BOOL)animated
-{SHOW_CMD;
+{
+    SHOW_CMD;
     [super viewWillAppear:animated];
     [self.tableView reloadData];
 }
@@ -228,6 +242,7 @@ static BOOL isReordering = NO;
     NSLog(@"section count %d", [[__fetchedResultsController sections] count]);
     return [[__fetchedResultsController sections] count];
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
@@ -235,14 +250,16 @@ static BOOL isReordering = NO;
     return [sectionInfo numberOfObjects];
 
 }
+
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath{
     // Configure the cell...
     FNCCheckItemCell *currentCell = (FNCCheckItemCell*)cell;
     Decision *aManagedDecisionObject = [__fetchedResultsController objectAtIndexPath:indexPath];
     currentCell.managedObject = aManagedDecisionObject;
-    currentCell.managedObjectContext = self.managedObjectContext;
+    currentCell.managedObjectContext = aManagedDecisionObject.managedObjectContext;
     currentCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {   
     static NSString *CellIdentifier = @"Cell";
@@ -260,26 +277,34 @@ static BOOL isReordering = NO;
     
     return cell;
 }
+
 //當手指劃過 TableViewCell 時會啟動此 delegate method
--(void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath
+{
     [self.navigationItem.rightBarButtonItem setEnabled:NO];
 }
+
 //當手指啟動的 editing mode 結束後，會啟動此 delegate method
--(void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath
+{
     [self.navigationItem.rightBarButtonItem setEnabled:YES];
 }
+
 //在TableViewCell 顯示之前，所呼叫的 delegate method，可以在此方法中進行最後的 TableViewCell 外觀設定
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
     [self syncUIWithCell:cell];
 
     [(FNCCheckItemCell*)cell redisplay]; //字串改變後，重新整理 FNCCheckItemCell 的顯示，以同步字串的改變
 }
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {   
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {    
@@ -303,6 +328,7 @@ static BOOL isReordering = NO;
         [self.managedObjectContext save:nil];
     }   
 }
+
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {    
@@ -330,12 +356,14 @@ static BOOL isReordering = NO;
     isReordering = NO;
     [self performSelector:@selector(delayTableViewReload) withObject:nil afterDelay:0.5];
 }
+
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
 }
+
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -350,8 +378,10 @@ static BOOL isReordering = NO;
     [self.navigationController pushViewController:TIVC animated:YES];
     [TIVC release];
 }
+
 #pragma mark Fetched results controller
-- (NSFetchedResultsController *)fetchedResultsController {
+- (NSFetchedResultsController *)fetchedResultsController
+{
     
     if (__fetchedResultsController != nil) {
         return __fetchedResultsController;
@@ -393,16 +423,21 @@ static BOOL isReordering = NO;
 }   
 
 // NSFetchedResultsControllerDelegate method to notify the delegate that all section and object changes have been processed. 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
     if (isReordering) return;
 	// The fetch controller is about to start sending change notifications, so prepare the table view for updates.
 	[self.tableView beginUpdates];
 }
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
     if (isReordering) return;
     [self.tableView endUpdates];
 }
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
+{
     if (isReordering) return;
     
     switch(type) {

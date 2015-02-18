@@ -7,8 +7,7 @@
 //
 
 #import <CoreData/CoreData.h>
-
-typedef void (^DDContextSaveCompletion) (BOOL completed);
+#import "NSManagedObjectContextTypeDefine.h"
 
 @interface NSManagedObject (ObjectGenerator)
 + (NSManagedObject *)insertNewObjectInManagedObjectContext:(NSManagedObjectContext *)backgroundContext;

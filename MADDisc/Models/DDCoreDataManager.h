@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NSManagedObject+ObjectGenerator.h"
+#import "NSManagedObjectContext+ContextSave.h"
 
 static NSString *const kDDPersistentStoreSQLite = @"MADDiscData101.sqlite";
 static NSString *const kDDCoreDataModel = @"MADDisc";
@@ -21,8 +22,6 @@ static NSString *const kDDCoreDataModel = @"MADDisc";
 + (DDCoreDataManager *)coreDataManager;
 
 - (NSManagedObjectContext *)createBackgroundContext;
-
-- (void)saveBackgroundContext:(NSManagedObjectContext *)backgroundContext completion:(DDContextSaveCompletion)completion;
 
 @end
 

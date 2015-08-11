@@ -13,4 +13,5 @@ This project is open sourced for everyone to discover something useful.
 
 ##Milestone
 
-MADDisc was in the top 20 of newly apps recommendation on App Store in 2011. http://cl.ly/image/3D2K1m1B1r2d2R432w07
+MADDisc was in the top 20 of newly apps recommendation on App Store in 2011. 
+![screenshot](http://cl.ly/image/3D2K1m1B1r2d2R432w07)

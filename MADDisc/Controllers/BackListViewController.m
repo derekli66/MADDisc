@@ -158,7 +158,7 @@ static BOOL isReordering = NO;
 #pragma mark - View lifecycle
 -(void)backToDelegateView
 {
-    [self.managedObjectContext contextSaveWithCompletion:^(BOOL completed) {
+    [self.managedObjectContext contextSaveAsync:^(BOOL completed) {
         if ([self.delegate respondsToSelector:@selector(backListViewControllerFinished:)])    {
             [self.delegate backListViewControllerFinished:self];
         }

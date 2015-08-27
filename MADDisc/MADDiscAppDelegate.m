@@ -186,7 +186,7 @@
         newDecision.checked = [dic valueForKey:@"checked"];
     }];
     
-    [backgroundCTX  contextSaveWithCompletion:^(BOOL completed) {
+    [backgroundCTX  contextSaveAsync:^(BOOL completed) {
         if (completed) {
             NSLog(@"The default setting was created successful.");
         }

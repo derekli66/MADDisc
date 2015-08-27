@@ -13,6 +13,4 @@
 + (NSManagedObject *)insertNewObjectInManagedObjectContext:(NSManagedObjectContext *)backgroundContext;
 
 + (NSManagedObject *)insertNewObjectWithProperties:(NSDictionary *)properties inManagedObjectContext:(NSManagedObjectContext *)backgroundContext;
-
-- (void)saveWithCompletion:(DDContextSaveCompletion)completion;
 @end

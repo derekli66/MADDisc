@@ -32,11 +32,4 @@
     return result;
 }
 
-- (void)saveWithCompletion:(DDContextSaveCompletion)completion
-{
-    // setup empty block if completion block is nil
-    DDContextSaveCompletion handler = (completion) ? completion : ^(BOOL completed) {};
-    [self.managedObjectContext contextSaveWithCompletion:handler];
-}
-
 @end

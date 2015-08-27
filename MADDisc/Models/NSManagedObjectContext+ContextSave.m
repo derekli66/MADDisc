@@ -9,7 +9,7 @@
 #import "NSManagedObjectContext+ContextSave.h"
 
 @implementation NSManagedObjectContext (ContextSave)
-- (void)contextSaveWithCompletion:(DDContextSaveCompletion)completion
+- (void)contextSaveAsync:(DDContextSaveCompletion)completion
 {
     NSManagedObjectContextConcurrencyType concurrentType = self.concurrencyType;
     NSManagedObjectContext *parentContext = self.parentContext;
@@ -24,7 +24,7 @@
         }
         
         if (parentContext) {
-            [parentContext contextSaveWithCompletion:completion];
+            [parentContext contextSaveAsync:completion];
         }
         else {
             if (concurrentType != NSMainQueueConcurrencyType) {
@@ -38,6 +38,16 @@
             
         }
     }];
+}
+
+@end
+
+@implementation NSManagedObject (ObjectSave)
+- (void)objectSaveAsync:(DDContextSaveCompletion)completion
+{
+    // setup empty block if completion block is nil
+    DDContextSaveCompletion handler = (completion) ? completion : ^(BOOL completed) {};
+    [self.managedObjectContext contextSaveAsync:handler];
 }
 
 @end

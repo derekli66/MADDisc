@@ -10,5 +10,9 @@
 #import "NSManagedObjectContextTypeDefine.h"
 
 @interface NSManagedObjectContext (ContextSave)
-- (void)contextSaveWithCompletion:(DDContextSaveCompletion)completion;
+- (void)contextSaveAsync:(DDContextSaveCompletion)completion;
+@end
+
+@interface NSManagedObject (ObjectSave)
+- (void)objectSaveAsync:(DDContextSaveCompletion)completion;
 @end

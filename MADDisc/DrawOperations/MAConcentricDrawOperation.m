@@ -6,8 +6,12 @@
 //  Copyright (c) 2015 Furnace . All rights reserved.
 //
 
+#import "Operation.h"
 #import "MAConcentricDrawOperation.h"
 
 @implementation MAConcentricDrawOperation
-
+- (void)operationDidStart
+{
+    
+}
 @end

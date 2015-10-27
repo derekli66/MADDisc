@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MAPieChartDrawOperation : NSOperation
+@class Operation;
+
+@interface MAPieChartDrawOperation : Operation
 
 @end

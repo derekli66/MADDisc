@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		712500021BDF5E7000E24FD6 /* MAPopUpAnimationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 712500011BDF5E7000E24FD6 /* MAPopUpAnimationOperation.m */; settings = {ASSET_TAGS = (); }; };
+		7125FFFF1BDF5E4F00E24FD6 /* MAStrinkAnimationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7125FFFE1BDF5E4F00E24FD6 /* MAStrinkAnimationOperation.m */; settings = {ASSET_TAGS = (); }; };
 		7152A2F41A94F7DC0041DC7D /* NSManagedObjectContext+ContextSave.m in Sources */ = {isa = PBXBuildFile; fileRef = 7152A2F31A94F7DC0041DC7D /* NSManagedObjectContext+ContextSave.m */; };
 		7152A2F91A9577960041DC7D /* MAPieChartDrawOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7152A2F81A9577960041DC7D /* MAPieChartDrawOperation.m */; };
 		7152A2FC1A9578560041DC7D /* MAConcentricDrawOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7152A2FB1A9578560041DC7D /* MAConcentricDrawOperation.m */; };
-		7152A2FF1A9578700041DC7D /* MADrawOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7152A2FE1A9578700041DC7D /* MADrawOperation.m */; };
+		7152A2FF1A9578700041DC7D /* Operation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7152A2FE1A9578700041DC7D /* Operation.m */; };
 		716C68D51A35754E00CBAB1C /* AnimatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68CA1A35754E00CBAB1C /* AnimatingViewController.m */; };
 		716C68D61A35754E00CBAB1C /* AnimatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716C68CB1A35754E00CBAB1C /* AnimatingViewController.xib */; };
 		716C68D71A35754E00CBAB1C /* BackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C68CD1A35754E00CBAB1C /* BackListViewController.m */; };
@@ -67,6 +69,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		712500001BDF5E7000E24FD6 /* MAPopUpAnimationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAPopUpAnimationOperation.h; sourceTree = "<group>"; };
+		712500011BDF5E7000E24FD6 /* MAPopUpAnimationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAPopUpAnimationOperation.m; sourceTree = "<group>"; };
+		7125FFFD1BDF5E4F00E24FD6 /* MAStrinkAnimationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAStrinkAnimationOperation.h; sourceTree = "<group>"; };
+		7125FFFE1BDF5E4F00E24FD6 /* MAStrinkAnimationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAStrinkAnimationOperation.m; sourceTree = "<group>"; };
 		7152A2F21A94F7DC0041DC7D /* NSManagedObjectContext+ContextSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+ContextSave.h"; sourceTree = "<group>"; };
 		7152A2F31A94F7DC0041DC7D /* NSManagedObjectContext+ContextSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+ContextSave.m"; sourceTree = "<group>"; };
 		7152A2F51A94F8CC0041DC7D /* NSManagedObjectContextTypeDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextTypeDefine.h; sourceTree = "<group>"; };
@@ -74,8 +80,8 @@
 		7152A2F81A9577960041DC7D /* MAPieChartDrawOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAPieChartDrawOperation.m; sourceTree = "<group>"; };
 		7152A2FA1A9578560041DC7D /* MAConcentricDrawOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAConcentricDrawOperation.h; sourceTree = "<group>"; };
 		7152A2FB1A9578560041DC7D /* MAConcentricDrawOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAConcentricDrawOperation.m; sourceTree = "<group>"; };
-		7152A2FD1A9578700041DC7D /* MADrawOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MADrawOperation.h; sourceTree = "<group>"; };
-		7152A2FE1A9578700041DC7D /* MADrawOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MADrawOperation.m; sourceTree = "<group>"; };
+		7152A2FD1A9578700041DC7D /* Operation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Operation.h; sourceTree = "<group>"; };
+		7152A2FE1A9578700041DC7D /* Operation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Operation.m; sourceTree = "<group>"; };
 		716C68C91A35754E00CBAB1C /* AnimatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatingViewController.h; sourceTree = "<group>"; };
 		716C68CA1A35754E00CBAB1C /* AnimatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatingViewController.m; sourceTree = "<group>"; };
 		716C68CB1A35754E00CBAB1C /* AnimatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimatingViewController.xib; sourceTree = "<group>"; };
@@ -179,12 +185,16 @@
 		7152A2F61A9577390041DC7D /* DrawOperations */ = {
 			isa = PBXGroup;
 			children = (
-				7152A2FD1A9578700041DC7D /* MADrawOperation.h */,
-				7152A2FE1A9578700041DC7D /* MADrawOperation.m */,
+				7152A2FD1A9578700041DC7D /* Operation.h */,
+				7152A2FE1A9578700041DC7D /* Operation.m */,
 				7152A2F71A9577960041DC7D /* MAPieChartDrawOperation.h */,
 				7152A2F81A9577960041DC7D /* MAPieChartDrawOperation.m */,
 				7152A2FA1A9578560041DC7D /* MAConcentricDrawOperation.h */,
 				7152A2FB1A9578560041DC7D /* MAConcentricDrawOperation.m */,
+				7125FFFD1BDF5E4F00E24FD6 /* MAStrinkAnimationOperation.h */,
+				7125FFFE1BDF5E4F00E24FD6 /* MAStrinkAnimationOperation.m */,
+				712500001BDF5E7000E24FD6 /* MAPopUpAnimationOperation.h */,
+				712500011BDF5E7000E24FD6 /* MAPopUpAnimationOperation.m */,
 			);
 			path = DrawOperations;
 			sourceTree = "<group>";
@@ -444,15 +454,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				71702A661A777C2200F3E3D6 /* NSManagedObjectContext-EasyFetch.m in Sources */,
+				7125FFFF1BDF5E4F00E24FD6 /* MAStrinkAnimationOperation.m in Sources */,
 				716C68D51A35754E00CBAB1C /* AnimatingViewController.m in Sources */,
 				B27774DB139E3FBC00ADD035 /* main.m in Sources */,
 				716C68D91A35754E00CBAB1C /* FNCCALayerDrawingDelegate.m in Sources */,
 				7152A2F41A94F7DC0041DC7D /* NSManagedObjectContext+ContextSave.m in Sources */,
 				B27774DE139E3FBC00ADD035 /* MADDiscAppDelegate.m in Sources */,
 				716C68DA1A35754E00CBAB1C /* FNCPieGraphController.m in Sources */,
+				712500021BDF5E7000E24FD6 /* MAPopUpAnimationOperation.m in Sources */,
 				716C68EF1A35757100CBAB1C /* FNCCheckItemCell.m in Sources */,
 				7152A2F91A9577960041DC7D /* MAPieChartDrawOperation.m in Sources */,
-				7152A2FF1A9578700041DC7D /* MADrawOperation.m in Sources */,
+				7152A2FF1A9578700041DC7D /* Operation.m in Sources */,
 				B232D25F13DC82EB0082D731 /* UIView+ImageOutput.m in Sources */,
 				716C68E11A35756100CBAB1C /* MADDisc.xcdatamodeld in Sources */,
 				716C68E01A35756100CBAB1C /* Decision.m in Sources */,

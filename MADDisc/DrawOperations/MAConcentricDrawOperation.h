@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MAConcentricDrawOperation : NSOperation
+@class Operation;
+
+@interface MAConcentricDrawOperation : Operation
 
 @end

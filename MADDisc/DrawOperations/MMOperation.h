@@ -14,7 +14,7 @@ typedef NS_OPTIONS(NSUInteger, MMOperationState) {
     MMOperationStateFinished = 2,
 };
 
-@interface Operation : NSOperation
+@interface MMOperation : NSOperation
 @property (nonatomic, readonly) MMOperationState operationState;
 
 - (void)operationDidStart;

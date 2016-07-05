@@ -6,8 +6,8 @@
 //  Copyright © 2015 Furnace Derek. All rights reserved.
 //
 
-#import "Operation.h"
+#import "MMOperation.h"
 
-@interface MAStrinkAnimationOperation : Operation
+@interface MAStrinkAnimationOperation : MMOperation
 
 @end

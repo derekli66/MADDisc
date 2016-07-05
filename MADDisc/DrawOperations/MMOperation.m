@@ -6,15 +6,14 @@
 //  Copyright (c) 2015 Furnace . All rights reserved.
 //
 
-#import "Operation.h"
+#import "MMOperation.h"
 
-@interface Operation () {
+@interface MMOperation () {
     MMOperationState _operationState;
 }
-
 @end
 
-@implementation Operation
+@implementation MMOperation
 
 - (MMOperationState)operationState
 {
@@ -24,7 +23,7 @@
 - (void)setOperationState:(MMOperationState)newState
 {
     @synchronized(self) {
-        MMOperationState oldState;
+        MMOperationState oldState = _operationState;
         
         if ( (newState == MMOperationStateExecuting) || (oldState == MMOperationStateExecuting) ) {
             [self willChangeValueForKey:@"isExecuting"];

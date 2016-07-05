@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@class Operation;
+@class MMOperation;
 
-@interface MAConcentricDrawOperation : Operation
+@interface MAConcentricDrawOperation : MMOperation
 
 @end
